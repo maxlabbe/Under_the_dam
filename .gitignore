@@ -59,3 +59,10 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+.idea/.idea.Under_the_dam/.idea/encodings.xml
+.idea/.idea.Under_the_dam/.idea/indexLayout.xml
+.idea/.idea.Under_the_dam/.idea/vcs.xml
+Packages/manifest.json
+Packages/packages-lock.json
+ProjectSettings/ProjectVersion.txt
+ProjectSettings/TagManager.asset
