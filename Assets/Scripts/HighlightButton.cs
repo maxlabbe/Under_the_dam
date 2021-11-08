@@ -6,33 +6,32 @@ using UnityEngine.UI;
 
 public class HighlightButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private Image image;
     public Sprite deselectedSprite;
     public Sprite selectedSprite;
+
+    private Image m_image;
+    
     // Start is called before the first frame update
     void Start()
     {
-        //Récupère le material de notre objet
-        image = GetComponent<Image>();
+        // Find the image component on the object
+        m_image = GetComponent<Image>();
 
-        // On vient setter la couleur de l'outline
-        image.sprite = deselectedSprite;
+        // Set the image to the deselected image
+        m_image.sprite = deselectedSprite;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    // What happendened when the mousse enter the button
     public void OnPointerEnter(PointerEventData eventData)
     {
-        image.sprite = selectedSprite;
-        Debug.Log("Enter");
+        // Set the image to the selected one
+        m_image.sprite = selectedSprite;
     }
 
+    // What happendened when the mousse exit the button
     public void OnPointerExit(PointerEventData eventData)
     {
-        image.sprite = deselectedSprite;
+        // Set the image to the deselcted one
+        m_image.sprite = deselectedSprite;
     }
 }
