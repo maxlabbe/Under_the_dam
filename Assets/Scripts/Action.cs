@@ -4,30 +4,34 @@ using UnityEngine;
 
 public class Action : MonoBehaviour{
 
-    int daysToFinish;
-    bool inProg;
-    // Start is called before the first frame update
-    void Start()
+    private int daysToFinish;
+    private bool inProg;
+    private Dictionary<string, int> rewards;
+
+    public Action() 
     {
+        this.daysToFinish = 3;
         this.inProg = true;
-        this.daysToFinish = 1;
-        Debug.Log("Acrion init");
+        this.rewards.Add("Wood", 10);
+        this.rewards.Add("Food", 10);
+        this.rewards.Add("Beaver", 0);
+        this.rewards.Add("Sake", 1);
     }
 
-    // Update is called once per frame
-    void Update(){}
-
-    void continueAction(){
-        daysToFinish--;
-        if(daysToFinish == 0)
-        {
-            this.finishAction();
-        }
-    }
-
-    void finishAction()
+    public bool doSelf()
     {
-        this.inProg = false;
-        Debug.Log("Acrion done");
+        this.daysToFinish--;
+        if(this.daysToFinish <= 0)
+        {
+            this.inProg = false;
+        }
+        return !this.inProg;
+    }
+    
+
+    public Dictionary<string, int> finishAction()
+    {
+        Debug.Log("Action done");
+        return this.rewards;
     }
 }
