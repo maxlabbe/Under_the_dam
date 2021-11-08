@@ -10,6 +10,7 @@ public class HighlightButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public Sprite selectedSprite;
 
     private Image m_image;
+    private bool wasClicked = false;
     
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,15 @@ public class HighlightButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
         // Set the image to the deselected image
         m_image.sprite = deselectedSprite;
+    }
+
+    void Update()
+    {
+        if(wasClicked)
+        {
+            m_image.sprite = deselectedSprite;
+            wasClicked = false;
+        }
     }
 
     // What happendened when the mousse enter the button
@@ -33,5 +43,10 @@ public class HighlightButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         // Set the image to the deselcted one
         m_image.sprite = deselectedSprite;
+    }
+
+    public void OnClic()
+    {
+        wasClicked = true;
     }
 }
