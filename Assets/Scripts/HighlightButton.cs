@@ -9,6 +9,7 @@ public class HighlightButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public Sprite deselectedSprite;
     public Sprite selectedSprite;
     public GameObject imageObject;
+    public AudioSource sound;
 
     private Image m_image;
     private bool wasClicked = false;
@@ -37,6 +38,9 @@ public class HighlightButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         // Set the image to the selected one
         m_image.sprite = selectedSprite;
+
+        //play the audio source
+        sound.Play();
     }
 
     // What happendened when the mousse exit the button
@@ -44,6 +48,9 @@ public class HighlightButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         // Set the image to the deselcted one
         m_image.sprite = deselectedSprite;
+
+        //reload the audio source
+        sound.Stop();
     }
 
     public void OnClic()
