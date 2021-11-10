@@ -8,6 +8,7 @@ public class HighlightButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
 {
     public Sprite deselectedSprite;
     public Sprite selectedSprite;
+    public GameObject imageObject;
 
     private Image m_image;
     private bool wasClicked = false;
@@ -16,7 +17,7 @@ public class HighlightButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
     void Start()
     {
         // Find the image component on the object
-        m_image = GetComponent<Image>();
+        m_image = imageObject.GetComponent<Image>();
 
         // Set the image to the deselected image
         m_image.sprite = deselectedSprite;
