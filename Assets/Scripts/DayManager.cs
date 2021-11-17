@@ -17,12 +17,22 @@ public class DayManager : MonoBehaviour
         TextMeshProUGUI textmeshPro = this.GetComponentInChildren<TextMeshProUGUI>();
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            this.queue.addActionToQueue(new Action());
+            Debug.Log("Added action to queue");
+            Debug.Log("Queue has "+ this.queue.getQueueList().Count+" actions");
+        }
+    }
+
     public void passDay()
     {
         this.nDays++;
         Dictionary<string, int> rewardsFromTheDay = queue.doAllActions();
-        // Debug.Log(nDays);
-        textmeshPro.SetText("Days : {0}.", this.nDays);
+        
+        textmeshPro.SetText("Days : {0}", this.nDays);
 
     }
 

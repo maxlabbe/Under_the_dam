@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Action : MonoBehaviour{
+public class Action{
 
     private int daysToFinish;
     private bool inProg;
@@ -10,6 +10,7 @@ public class Action : MonoBehaviour{
 
     public Action() 
     {
+        this.rewards = new Dictionary<string, int>();
         this.daysToFinish = 3;
         this.inProg = true;
         this.rewards.Add("Wood", 10);

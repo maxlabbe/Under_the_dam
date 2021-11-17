@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QueueAction : MonoBehaviour
+public class QueueAction
 {
     private List<Action> queue;
 
@@ -20,7 +20,7 @@ public class QueueAction : MonoBehaviour
         rewards.Add("Sake",   0);
 
 
-        foreach (Action action in this.queue)
+        foreach (Action action in this.queue.ToArray())
         {
             if (action.doSelf())
             {
@@ -29,8 +29,9 @@ public class QueueAction : MonoBehaviour
                 removeActionFromQueue(action);
             }
         }
-        Debug.Log("Rewards\n");
-        Debug.Log(rewards.ToString());
+        //Debug.Log("Rewards\n");
+        //Debug.Log(rewards.ToString());
+        Debug.Log("     Queue has " + this.queue.Count + " actions");
         return rewards;
     }
 
