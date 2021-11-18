@@ -7,22 +7,36 @@ public class DayManager : MonoBehaviour
 {
     private QueueAction queue;
     public int nDays;
-    public TextMeshProUGUI textmeshPro;
+    public TextMeshProUGUI daysCount;
+    public TextMeshProUGUI actionsRewards;
 
     // Start is called before the first frame update
     void Start()
     {
         this.nDays = 0;
         this.queue = new QueueAction();
-        TextMeshProUGUI textmeshPro = this.GetComponentInChildren<TextMeshProUGUI>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            this.queue.addActionToQueue(new Action());
+            Debug.Log("Added action to queue");
+            Debug.Log("Queue has "+ this.queue.getQueueList().Count+" actions");
+        }
     }
 
     public void passDay()
     {
         this.nDays++;
-        Dictionary<string, int> rewardsFromTheDay = queue.doAllActions();
-        // Debug.Log(nDays);
-        textmeshPro.SetText("Days : {0}.", this.nDays);
+        Dictionary<string, int> rewardsFromTheDay = this.queue.doAllActions();
+        
+        this.daysCount.SetText("Days : {0}", this.nDays);
+        this.actionsRewards.SetText("Récompenses de la journée : \nBois : +{0}\nNourriture : +{1}\nSaké : +{2}",
+            rewardsFromTheDay["Wood"], 
+            rewardsFromTheDay["Food"], 
+            rewardsFromTheDay["Sake"]);
 
     }
 
