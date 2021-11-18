@@ -30,7 +30,7 @@ public class DayManager : MonoBehaviour
     public void passDay()
     {
         this.nDays++;
-        Dictionary<string, int> rewardsFromTheDay = queue.doAllActions();
+        Dictionary<string, int> rewardsFromTheDay = this.queue.doAllActions();
         
         textmeshPro.SetText("Days : {0}", this.nDays);
 
