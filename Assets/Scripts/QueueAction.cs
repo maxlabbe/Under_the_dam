@@ -59,4 +59,18 @@ public class QueueAction
     {
         this.queue.Add(a);
     }
+
+    override
+    public string ToString()
+    {
+        string toString="";
+        int i = 0;
+
+        foreach(Action a in this.queue)
+        {
+            toString += i+" : "+a.getDaysToFinish() + "\n";
+        }
+
+        return toString;
+    }
 }
