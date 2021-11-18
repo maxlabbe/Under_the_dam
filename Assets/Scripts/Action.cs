@@ -35,4 +35,9 @@ public class Action{
         Debug.Log("Action done");
         return this.rewards;
     }
+
+    public int getDaysToFinish()
+    {
+        return this.daysToFinish;
+    }
 }
