@@ -1,11 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="e3cfef8d-7bee-4057-9661-8aa88bb8f757" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/TileDataManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/TileDataManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/Map.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/Map/Grass_3x3_256.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/Map/Grass_3x3_256.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/Map/Grass_Field_withBorder_3x3_256.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/Map/Grass_Field_withBorder_3x3_256.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/Map/Grass_Forest_withBorder_3x3_256.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/Map/Grass_Forest_withBorder_3x3_256.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/Map/Grass_Water_withBorder_3x3_256.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprite/Map/Grass_Water_withBorder_3x3_256.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Data.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Data/Field.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Data/Field.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Data/Forest.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Data/Forest.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Data/Grass.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Data/Grass.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Data/TileData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Data/TileData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Data/Water.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Data/Water.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Palettes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Palettes/StandardPalette.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Palettes/StandardPalette.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_3x3_256_0.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_3x3_256_0.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_3x3_256_1.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_3x3_256_1.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_3x3_256_2.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_3x3_256_2.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_3x3_256_3.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_3x3_256_3.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_3x3_256_4.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_3x3_256_4.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_3x3_256_5.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_3x3_256_5.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_3x3_256_6.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_3x3_256_6.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_3x3_256_7.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_3x3_256_7.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_3x3_256_8.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_3x3_256_8.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Field_withBorder_3x3_256_0.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Field_withBorder_3x3_256_0.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Field_withBorder_3x3_256_1.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Field_withBorder_3x3_256_1.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Field_withBorder_3x3_256_2.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Field_withBorder_3x3_256_2.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Field_withBorder_3x3_256_3.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Field_withBorder_3x3_256_3.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Field_withBorder_3x3_256_4.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Field_withBorder_3x3_256_4.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Field_withBorder_3x3_256_5.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Field_withBorder_3x3_256_5.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Field_withBorder_3x3_256_6.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Field_withBorder_3x3_256_6.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Field_withBorder_3x3_256_7.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Field_withBorder_3x3_256_7.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Field_withBorder_3x3_256_8.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Field_withBorder_3x3_256_8.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Forest_withBorder_3x3_256_0.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Forest_withBorder_3x3_256_0.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Forest_withBorder_3x3_256_1.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Forest_withBorder_3x3_256_1.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Forest_withBorder_3x3_256_2.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Forest_withBorder_3x3_256_2.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Forest_withBorder_3x3_256_3.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Forest_withBorder_3x3_256_3.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Forest_withBorder_3x3_256_4.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Forest_withBorder_3x3_256_4.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Forest_withBorder_3x3_256_5.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Forest_withBorder_3x3_256_5.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Forest_withBorder_3x3_256_6.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Forest_withBorder_3x3_256_6.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Forest_withBorder_3x3_256_7.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Forest_withBorder_3x3_256_7.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Forest_withBorder_3x3_256_8.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Forest_withBorder_3x3_256_8.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Water_withBorder_3x3_256_0.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Water_withBorder_3x3_256_0.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Water_withBorder_3x3_256_1.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Water_withBorder_3x3_256_1.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Water_withBorder_3x3_256_2.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Water_withBorder_3x3_256_2.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Water_withBorder_3x3_256_3.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Water_withBorder_3x3_256_3.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Water_withBorder_3x3_256_4.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Water_withBorder_3x3_256_4.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Water_withBorder_3x3_256_5.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Water_withBorder_3x3_256_5.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Water_withBorder_3x3_256_6.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Water_withBorder_3x3_256_6.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Water_withBorder_3x3_256_7.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Water_withBorder_3x3_256_7.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Water_withBorder_3x3_256_8.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tilemap/Tiles/Grass_Water_withBorder_3x3_256_8.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Under_the_dam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Under_the_dam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MapSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MapSelector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Bureau_main_view.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Bureau_main_view.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +118,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Tilemap/Data/TileData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TileDataManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="20ZYY7KGpKSjJcT6SXFOIfY5kPN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -27,6 +135,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -60,6 +172,7 @@
       <option name="presentableId" value="Default" />
       <updated>1636253715626</updated>
       <workItem from="1636253761929" duration="676000" />
+      <workItem from="1637288251059" duration="2397000" />
     </task>
     <servers />
   </component>
@@ -69,6 +182,17 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
