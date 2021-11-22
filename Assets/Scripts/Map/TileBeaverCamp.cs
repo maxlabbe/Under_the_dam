@@ -8,6 +8,7 @@ public class TileBeaverCamp : Tile
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = m_sprite;
 
+        m_type = "beaver camp";
         m_food = 0;
         m_wood = 0;
         m_isWater = false;

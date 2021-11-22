@@ -564,6 +564,8 @@ MonoBehaviour:
   m_tileUpRightRiver: {fileID: 5501454773097677696, guid: a64d7ed5de881e24987fda0b268d8820, type: 3}
   m_tileDownLeftRiver: {fileID: 3789882967530771653, guid: 3b8d2e7547ccc1a439bc0bae53a6fd0c, type: 3}
   m_tileDownRightRiver: {fileID: 6984911699101465050, guid: 5581e4d94da5bfc49978c46e129582fa, type: 3}
+  m_tileField: {fileID: 0}
+  m_tileWood: {fileID: 0}
 --- !u!1 &162488598
 GameObject:
   m_ObjectHideFlags: 0

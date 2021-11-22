@@ -8,8 +8,10 @@ public class TileRiver : Tile
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = m_sprite;
 
+        m_type = "water";
         m_food = 0;
         m_wood = 0;
         m_isWater = true;
+
     }
 }

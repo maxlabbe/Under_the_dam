@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class TileMap : MonoBehaviour
 {
+    [SerializeField] private GameObject parent;
+    
     [SerializeField] private int m_sideSize;
     [SerializeField] private Tile m_tile;
     [SerializeField] private float m_tileScale;
+    private List<List<Tile>> m_tiles;
+
     [SerializeField] private TileVillage m_tileVillage;
     [SerializeField] private TileBeaverCamp m_tileBeaverCamp;
     [SerializeField] private TileRiver m_tileVerticalRiver, m_tileHorizonalRiver, m_tileUpLeftRiver, m_tileUpRightRiver, m_tileDownLeftRiver, m_tileDownRightRiver;
-    private List<List<Tile>> m_tiles;
+    [SerializeField] private TileField m_tileField;
+    [SerializeField] private TileWood m_tileWood;
+
+    private int m_river;
+    private const int LARGE_WOOD_TILES = 5;
+    private const int MEDIUM_WOOD_TILES = 3;
 
     // Start is called before the first frame update
     [SerializeField]
@@ -41,6 +50,7 @@ public class TileMap : MonoBehaviour
             {
                 Vector3 position = new Vector3(column * spriteSideSize + offset, row * spriteSideSize + offset);
                 var tile = Instantiate(m_tile, position, Quaternion.identity);
+                tile.transform.parent = parent.transform;
                 int indexOfsett = m_sideSize / 2;
                 tilesByLine.Add(tile);
             }
@@ -73,18 +83,229 @@ public class TileMap : MonoBehaviour
         switch(randomRiver){
             case 1:
                 DrawRiver2();
+                m_river = 2;
                 break;
             case 2:
                 DrawRiver3();
+                m_river = 3;
                 break;
             default:
                 DrawRiver1();
+                m_river = 1;
                 break;
         }
     }
     private void DrawRestOfTheMap()
     {
+        int numberOfField = 6;
+        int numberOfWoods = 17;
+        while(numberOfField > 0 || numberOfWoods > 0)
+        {
+            for (int row = 0; row < m_tiles.Count; row++)
+            {
+                for (int column = 0; column < m_tiles[row].Count; column++)
+                {
+                    int purcentageOfApparition = (int)(Random.Range(0, 101.0f));
 
+                    if (purcentageOfApparition <= 13)
+                    {
+                        if (numberOfField > 0)
+                        {
+                            numberOfField -= DrawField(row, column);
+                        }
+                    }
+                    else if (purcentageOfApparition > 13 && purcentageOfApparition <= 36)
+                    {
+                        if (numberOfWoods > 0)
+                        {
+                            numberOfWoods -= DrawWood(row, column);
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    private int DrawWood(int i, int j)
+    {
+        int woodsSpawned = 0;
+        int purcentageOfApparition = (int)(Random.Range(0, 101.0f));
+        if(purcentageOfApparition <= 33)
+        {
+            m_tileWood.initializeTile(false);
+            if(i >= 0 && i < m_sideSize && j >= 0 && j < m_sideSize)
+            {
+                if (!m_tiles[i][j].IsUsed())
+                {
+                    m_tiles[i][j].SwapTile(m_tileWood);
+                    m_tiles[i][j].initializeTile();
+                    woodsSpawned++;
+                }
+            }
+            
+            if(i >= 0 && i < m_sideSize && j + 1 >= 0 && j + 1 < m_sideSize)
+            {
+                if (!m_tiles[i][j + 1].IsUsed())
+                {
+                    m_tiles[i][j + 1].SwapTile(m_tileWood);
+                    m_tiles[i][j + 1].initializeTile();
+                    woodsSpawned++;
+                }
+            }
+            
+            if(i >= 0 && i < m_sideSize && j + 2 >= 0 && j + 2 < m_sideSize)
+            {
+                if (!m_tiles[i][j + 2].IsUsed())
+                {
+                    m_tiles[i][j + 2].SwapTile(m_tileWood);
+                    m_tiles[i][j + 2].initializeTile();
+                    woodsSpawned++;
+                }
+            }
+            
+            if(i - 1 >= 0 && i - 1 < m_sideSize && j + 1 >= 0 && j + 1 < m_sideSize)
+            {
+                if (!m_tiles[i - 1][j + 1].IsUsed())
+                {
+                    m_tiles[i - 1][j + 1].SwapTile(m_tileWood);
+                    m_tiles[i - 1][j + 1].initializeTile();
+                    woodsSpawned++;
+                }
+            }
+            
+            if(i - 1 >= 0 && i - 1 < m_sideSize && j + 2 >= 0 && j + 2 < m_sideSize)
+            {
+                if (!m_tiles[i - 1][j + 2].IsUsed())
+                {
+                    m_tiles[i - 1][j + 2].SwapTile(m_tileWood);
+                    woodsSpawned++;
+                }
+            }
+        }
+
+        else if(purcentageOfApparition >= 33 && purcentageOfApparition <= 66)
+        {
+            m_tileWood.initializeTile(false);
+            if (i >= 0 && i < m_sideSize && j >= 0 && j < m_sideSize)
+            {
+                if (!m_tiles[i][j].IsUsed())
+                {
+                    m_tiles[i][j].SwapTile(m_tileWood);
+                    m_tiles[i][j].initializeTile();
+                    woodsSpawned++;
+                }
+            }
+            
+            if(i + 1 >= 0 && i + 1 < m_sideSize && j >= 0 && j < m_sideSize)
+            {
+                if (!m_tiles[i + 1][j].IsUsed())
+                {
+                    m_tiles[i + 1][j].SwapTile(m_tileWood);
+                    m_tiles[i + 1][j].initializeTile();
+                    woodsSpawned++;
+                }
+            }
+
+            if (i + 1 >= 0 && i + 1 < m_sideSize && j + 1 >= 0 && j + 1 < m_sideSize)
+            {
+                if (!m_tiles[i + 1][j + 1].IsUsed())
+                {
+                    m_tiles[i + 1][j + 1].SwapTile(m_tileWood);
+                    m_tiles[i + 1][j + 1].initializeTile();
+                    woodsSpawned++;
+                }
+            }
+        }
+
+        else
+        {
+            m_tileWood.initializeTile(true);
+            if (!m_tiles[i][j].IsUsed())
+            {
+                m_tiles[i][j].SwapTile(m_tileWood);
+                m_tiles[i][j].initializeTile();
+                woodsSpawned++;
+            }
+        }
+
+        return woodsSpawned;
+    }
+
+    private int DrawField(int i, int j)
+    {
+        int fieldsSpawned = 0;
+        int purcentageOfApparition = (int)(Random.Range(0, 101.0f));
+        if (purcentageOfApparition <= 33)
+        {
+            m_tileField.initializeTile(false);
+            if (i >= 0 && i < m_sideSize && j >= 0 && j < m_sideSize)
+            {
+                if (!m_tiles[i][j].IsUsed())
+                {
+                    m_tiles[i][j].SwapTile(m_tileField);
+                    m_tiles[i][j].initializeTile();
+                    fieldsSpawned++;
+                }
+            }
+
+            if (i >= 0 && i < m_sideSize && j + 1 >= 0 && j + 1 < m_sideSize)
+            {
+                if (!m_tiles[i][j + 1].IsUsed())
+                {
+                    m_tiles[i][j + 1].SwapTile(m_tileField);
+                    m_tiles[i][j + 1].initializeTile();
+                    fieldsSpawned++;
+                }
+            }
+
+            if (i - 1 >= 0 && i - 1 < m_sideSize && j + 1 >= 0 && j + 1 < m_sideSize)
+            {
+                if (!m_tiles[i - 1][j + 1].IsUsed())
+                {
+                    m_tiles[i - 1][j + 1].SwapTile(m_tileField);
+                    m_tiles[i - 1][j + 1].initializeTile();
+                    fieldsSpawned++;
+                }
+            }
+        }
+
+        else if (purcentageOfApparition >= 33 && purcentageOfApparition <= 66)
+        {
+            m_tileField.initializeTile(false);
+            if (i >= 0 && i < m_sideSize && j >= 0 && j < m_sideSize)
+            {
+                if (!m_tiles[i][j].IsUsed())
+                {
+                    m_tiles[i][j].SwapTile(m_tileField);
+                    m_tiles[i][j].initializeTile();
+                    fieldsSpawned++;
+                }
+            }
+
+            if (i + 1 >= 0 && i + 1 < m_sideSize && j >= 0 && j < m_sideSize)
+            {
+                if (!m_tiles[i + 1][j].IsUsed())
+                {
+                    m_tiles[i + 1][j].SwapTile(m_tileField);
+                    m_tiles[i + 1][j].initializeTile();
+                    fieldsSpawned++;
+                }
+            }
+        }
+
+        else
+        {
+            m_tileField.initializeTile(true);
+            if (!m_tiles[i][j].IsUsed())
+            {
+                m_tiles[i][j].SwapTile(m_tileField);
+                m_tiles[i][j].initializeTile();
+                fieldsSpawned++;
+            }
+        }
+
+        return fieldsSpawned;
     }
 
     private void DrawRiver1()
