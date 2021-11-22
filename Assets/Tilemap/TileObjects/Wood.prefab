@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 451789704080829228, guid: 8e2b7bb6ef767264397fbdb3b89788d1, type: 3}
+  m_Sprite: {fileID: 3616856086047660009, guid: 8e2b7bb6ef767264397fbdb3b89788d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c186d29322445e24fad625acd8555899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_sprite: {fileID: 451789704080829228, guid: 8e2b7bb6ef767264397fbdb3b89788d1, type: 3}
+  m_sprite: {fileID: 3616856086047660009, guid: 8e2b7bb6ef767264397fbdb3b89788d1, type: 3}
   m_highlight: {fileID: 5390637379437418387}
   m_bigWood: {fileID: 3616856086047660009, guid: 8e2b7bb6ef767264397fbdb3b89788d1, type: 3}
   m_littleWood: {fileID: 451789704080829228, guid: 8e2b7bb6ef767264397fbdb3b89788d1, type: 3}
