@@ -41,14 +41,11 @@ public class DayManager : MonoBehaviour
             rewardsFromTheDay["Wood"], 
             rewardsFromTheDay["Food"], 
             rewardsFromTheDay["Sake"]);
-        //int beavtaunt = this.humor.GetBeaversTauntValue;
-        //int humantaunt = this.humor.GetHumansTauntValue;
-        //Debug.Log(this.humor.GetBeaversTauntValue());
-        //Debug.Log(humorManager.GetBeaversTauntValue());
-        BeaverGauge.instance.SetValue(0.10f);
-        HumanGauge.instance.SetValue(0.05f);
-        //this.humor.beaverGauge.SetValue(3);
-        //humanGauge.SetValue(8);
+        humorManager.AddBeaversTaunt(0.20f);
+        humorManager.AddHumansTaunt(0.10f);
+
+        BeaverGauge.instance.SetValue(humorManager.GetBeaversTauntValue());
+        HumanGauge.instance.SetValue(humorManager.GetHumansTauntValue());
     }
 
     public QueueAction getQueue()
