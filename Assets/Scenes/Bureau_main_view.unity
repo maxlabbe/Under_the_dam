@@ -180,11 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7032433079839400830, guid: bc7785912a110fd44ab4e9dc75c08eed, type: 3}
       propertyPath: m_IsActive
-<<<<<<< HEAD
-      value: 0
-=======
       value: 1
->>>>>>> 9016dbde99cec3a6fc22dbe915b9bff59406100a
       objectReference: {fileID: 0}
     - target: {fileID: 7304896754446901704, guid: bc7785912a110fd44ab4e9dc75c08eed, type: 3}
       propertyPath: day_manager
