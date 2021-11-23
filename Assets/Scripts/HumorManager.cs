@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HumorManager : MonoBehaviour
-{
-    public static HumorManager instance { get; private set; }
-    public HumanGauge humanGauge;
-    public BeaverGauge beaverGauge;
+public class HumorManager{
+   
     private float m_humans_gauge;
     private float m_beavers_gauge;
     
