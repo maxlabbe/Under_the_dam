@@ -37,7 +37,11 @@ public class DayManager : MonoBehaviour
             rewardsFromTheDay["Wood"], 
             rewardsFromTheDay["Food"], 
             rewardsFromTheDay["Sake"]);
+    }
 
+    public QueueAction getQueue()
+    {
+        return this.queue;
     }
 
 }
