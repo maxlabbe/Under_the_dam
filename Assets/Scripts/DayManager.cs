@@ -10,11 +10,15 @@ public class DayManager : MonoBehaviour
     public TextMeshProUGUI daysCount;
     public TextMeshProUGUI actionsRewards;
 
+    public HumorManager humorManager;
+
+    
     // Start is called before the first frame update
     void Start()
     {
         this.nDays = 0;
         this.queue = new QueueAction();
+        this.humorManager = new HumorManager();
     }
 
     void Update()
@@ -33,10 +37,18 @@ public class DayManager : MonoBehaviour
         Dictionary<string, int> rewardsFromTheDay = this.queue.doAllActions();
         
         this.daysCount.SetText("Days : {0}", this.nDays);
-        this.actionsRewards.SetText("Récompenses de la journée : \nBois : +{0}\nNourriture : +{1}\nSaké : +{2}",
+        this.actionsRewards.SetText("Rï¿½compenses de la journï¿½e : \nBois : +{0}\nNourriture : +{1}\nSakï¿½ : +{2}",
             rewardsFromTheDay["Wood"], 
             rewardsFromTheDay["Food"], 
             rewardsFromTheDay["Sake"]);
+        //int beavtaunt = this.humor.GetBeaversTauntValue;
+        //int humantaunt = this.humor.GetHumansTauntValue;
+        //Debug.Log(this.humor.GetBeaversTauntValue());
+        //Debug.Log(humorManager.GetBeaversTauntValue());
+        BeaverGauge.instance.SetValue(0.10f);
+        HumanGauge.instance.SetValue(0.05f);
+        //this.humor.beaverGauge.SetValue(3);
+        //humanGauge.SetValue(8);
     }
 
     public QueueAction getQueue()

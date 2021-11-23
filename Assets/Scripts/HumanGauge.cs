@@ -10,6 +10,8 @@ public class HumanGauge : MonoBehaviour
     float originalSize;
     private float testPercentage=0;
 
+    public HumorManager humor;
+
     private void Awake()
     {
         instance = this;
@@ -28,12 +30,15 @@ public class HumanGauge : MonoBehaviour
 
     private void Update()
     {
+        //float tauntValue = humor.GetHumansTauntValue();
+        //HumanGauge.instance.SetValue(tauntValue);
+        //For testing
+        /*
         testPercentage += 0.001f;
         if (testPercentage>1)
         {
             testPercentage = 0;
-        }
-        //For testing
-        HumanGauge.instance.SetValue(testPercentage);
+        }       
+        HumanGauge.instance.SetValue(testPercentage);*/
     }
 }
