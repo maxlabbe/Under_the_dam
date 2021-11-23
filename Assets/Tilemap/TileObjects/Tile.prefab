@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_sprite: {fileID: -851091306949804385, guid: afd6499dd91e653499d272912dfc3ed1, type: 3}
   m_highlight: {fileID: 3308350861511578501}
+  day_manager: {fileID: 485075387476600028, guid: a639260238cff7f4a8763fae1fb80c33, type: 3}
 --- !u!61 &7821660493068634619
 BoxCollider2D:
   m_ObjectHideFlags: 0

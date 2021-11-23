@@ -57,6 +57,7 @@ public class QueueAction
 
     public void addActionToQueue(Action a)
     {
+        Debug.Log("Added action to queue (from QueueAction.cs");
         this.queue.Add(a);
     }
 

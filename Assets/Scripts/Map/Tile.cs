@@ -10,6 +10,8 @@ public class Tile : MonoBehaviour
     protected bool m_isWater;
     [SerializeField] protected Sprite m_sprite;
     [SerializeField] private GameObject m_highlight;
+    
+    public GameObject day_manager;
 
     protected bool m_isUsed = false;
     public virtual void initializeTile()
@@ -71,6 +73,10 @@ public class Tile : MonoBehaviour
 
     public void OnMouseDown()
     {
-        Debug.Log("action");
+        QueueAction queue = this.day_manager.GetComponent<DayManager>().getQueue();
+        Action a = new Action();
+        queue.addActionToQueue(a);
+
+
     }
 }
