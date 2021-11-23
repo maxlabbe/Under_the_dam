@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 7032433079839400830, guid: bc7785912a110fd44ab4e9dc75c08eed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7304896754446901704, guid: bc7785912a110fd44ab4e9dc75c08eed, type: 3}
       propertyPath: day_manager
       value: 
@@ -1471,7 +1475,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.167, y: -0.103}
   m_SizeDelta: {x: 0.93043, y: 0.49335}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &848382276
@@ -3202,7 +3206,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.34, y: 4.35}
+  m_AnchoredPosition: {x: -3.4, y: 3.79}
   m_SizeDelta: {x: 1.343, y: 0.949}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1395341664
@@ -4069,7 +4073,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: 4.515602}
+  m_AnchoredPosition: {x: -0.36, y: 4.42}
   m_SizeDelta: {x: 6.78915, y: 1.74392}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1786096429
