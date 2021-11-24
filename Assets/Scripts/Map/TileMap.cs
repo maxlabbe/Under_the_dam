@@ -6,18 +6,18 @@ public class TileMap : MonoBehaviour
 {
     [SerializeField] private GameObject parent;
     
-    [SerializeField] private int m_sideSize;
+    [SerializeField] private int m_height;
+    [SerializeField] private int m_width;
     [SerializeField] private Tile m_tile;
     [SerializeField] private float m_tileScale;
     private List<List<Tile>> m_tiles;
 
     [SerializeField] private TileVillage m_tileVillage;
     [SerializeField] private TileBeaverCamp m_tileBeaverCamp;
-    [SerializeField] private TileRiver m_tileVerticalRiver, m_tileHorizonalRiver, m_tileUpLeftRiver, m_tileUpRightRiver, m_tileDownLeftRiver, m_tileDownRightRiver;
+    [SerializeField] private TileRiver m_tileVerticalRiver, m_tileHorizontalRiver, m_tileUpLeftRiver, m_tileUpRightRiver, m_tileDownLeftRiver, m_tileDownRightRiver;
     [SerializeField] private TileField m_tileField;
     [SerializeField] private TileWood m_tileWood;
 
-    private int m_river;
     private const int LARGE_WOOD_TILES = 5;
     private const int MEDIUM_WOOD_TILES = 3;
 
@@ -28,7 +28,7 @@ public class TileMap : MonoBehaviour
         m_tileVillage.initializeTile();
         m_tileBeaverCamp.initializeTile();
         m_tileVerticalRiver.initializeTile();
-        m_tileHorizonalRiver.initializeTile();
+        m_tileHorizontalRiver.initializeTile();
         m_tileUpLeftRiver.initializeTile();
         m_tileUpRightRiver.initializeTile();
         m_tileDownLeftRiver.initializeTile();
@@ -43,15 +43,14 @@ public class TileMap : MonoBehaviour
 
         List<List<Tile>> tiles = new List<List<Tile>>();
 
-        for (int row = -1 * m_sideSize / 2; row < m_sideSize / 2; row ++)
+        for (int row = -1 * m_height / 2; row < m_height / 2; row ++)
         {
             List <Tile> tilesByLine = new List<Tile>();
-            for (int column = -1 * m_sideSize / 2; column < m_sideSize / 2; column++)
+            for (int column = -1 * m_width / 2; column < m_width / 2; column++)
             {
                 Vector3 position = new Vector3(column * spriteSideSize + offset, row * spriteSideSize + offset);
                 var tile = Instantiate(m_tile, position, Quaternion.identity);
                 tile.transform.parent = parent.transform;
-                int indexOfsett = m_sideSize / 2;
                 tilesByLine.Add(tile);
             }
 
@@ -71,34 +70,31 @@ public class TileMap : MonoBehaviour
 
     private void DrawVillage()
     {
-        m_tiles[0][7].SwapTile(m_tileVillage);
-        m_tiles[0][7].initializeTile();
-        m_tiles[7][0].SwapTile(m_tileBeaverCamp); 
-        m_tiles[7][0].initializeTile();
+        m_tiles[0][m_width - 1].SwapTile(m_tileVillage);
+        m_tiles[0][m_width - 1].initializeTile();
+        m_tiles[m_height - 1][0].SwapTile(m_tileBeaverCamp); 
+        m_tiles[m_height - 1][0].initializeTile();
     }
     private void DrawRiver()
     {
         int randomRiver = (int)(Random.Range(0, 3.0f));
-
-        switch(randomRiver){
+        Debug.Log(randomRiver);
+        switch (randomRiver){
             case 1:
                 DrawRiver2();
-                m_river = 2;
                 break;
             case 2:
                 DrawRiver3();
-                m_river = 3;
                 break;
             default:
                 DrawRiver1();
-                m_river = 1;
                 break;
         }
     }
     private void DrawRestOfTheMap()
     {
-        int numberOfField = 6;
-        int numberOfWoods = 17;
+        int numberOfField = 10;
+        int numberOfWoods = 30;
         while(numberOfField > 0 || numberOfWoods > 0)
         {
             for (int row = 0; row < m_tiles.Count; row++)
@@ -134,7 +130,7 @@ public class TileMap : MonoBehaviour
         if(purcentageOfApparition <= 33)
         {
             m_tileWood.initializeTile(false);
-            if(i >= 0 && i < m_sideSize && j >= 0 && j < m_sideSize)
+            if(i >= 0 && i < m_height && j >= 0 && j < m_width)
             {
                 if (!m_tiles[i][j].IsUsed())
                 {
@@ -144,7 +140,7 @@ public class TileMap : MonoBehaviour
                 }
             }
             
-            if(i >= 0 && i < m_sideSize && j + 1 >= 0 && j + 1 < m_sideSize)
+            if(i >= 0 && i < m_height && j + 1 >= 0 && j + 1 < m_width)
             {
                 if (!m_tiles[i][j + 1].IsUsed())
                 {
@@ -154,7 +150,7 @@ public class TileMap : MonoBehaviour
                 }
             }
             
-            if(i >= 0 && i < m_sideSize && j + 2 >= 0 && j + 2 < m_sideSize)
+            if(i >= 0 && i < m_height && j + 2 >= 0 && j + 2 < m_width)
             {
                 if (!m_tiles[i][j + 2].IsUsed())
                 {
@@ -164,7 +160,7 @@ public class TileMap : MonoBehaviour
                 }
             }
             
-            if(i - 1 >= 0 && i - 1 < m_sideSize && j + 1 >= 0 && j + 1 < m_sideSize)
+            if(i - 1 >= 0 && i - 1 < m_height && j + 1 >= 0 && j + 1 < m_width)
             {
                 if (!m_tiles[i - 1][j + 1].IsUsed())
                 {
@@ -174,7 +170,7 @@ public class TileMap : MonoBehaviour
                 }
             }
             
-            if(i - 1 >= 0 && i - 1 < m_sideSize && j + 2 >= 0 && j + 2 < m_sideSize)
+            if(i - 1 >= 0 && i - 1 < m_height && j + 2 >= 0 && j + 2 < m_width)
             {
                 if (!m_tiles[i - 1][j + 2].IsUsed())
                 {
@@ -187,7 +183,7 @@ public class TileMap : MonoBehaviour
         else if(purcentageOfApparition >= 33 && purcentageOfApparition <= 66)
         {
             m_tileWood.initializeTile(false);
-            if (i >= 0 && i < m_sideSize && j >= 0 && j < m_sideSize)
+            if (i >= 0 && i < m_height && j >= 0 && j < m_width)
             {
                 if (!m_tiles[i][j].IsUsed())
                 {
@@ -197,7 +193,7 @@ public class TileMap : MonoBehaviour
                 }
             }
             
-            if(i + 1 >= 0 && i + 1 < m_sideSize && j >= 0 && j < m_sideSize)
+            if(i + 1 >= 0 && i + 1 < m_height && j >= 0 && j < m_width)
             {
                 if (!m_tiles[i + 1][j].IsUsed())
                 {
@@ -207,7 +203,7 @@ public class TileMap : MonoBehaviour
                 }
             }
 
-            if (i + 1 >= 0 && i + 1 < m_sideSize && j + 1 >= 0 && j + 1 < m_sideSize)
+            if (i + 1 >= 0 && i + 1 < m_height && j + 1 >= 0 && j + 1 < m_width)
             {
                 if (!m_tiles[i + 1][j + 1].IsUsed())
                 {
@@ -239,7 +235,7 @@ public class TileMap : MonoBehaviour
         if (purcentageOfApparition <= 33)
         {
             m_tileField.initializeTile(false);
-            if (i >= 0 && i < m_sideSize && j >= 0 && j < m_sideSize)
+            if (i >= 0 && i < m_height && j >= 0 && j < m_width)
             {
                 if (!m_tiles[i][j].IsUsed())
                 {
@@ -249,7 +245,7 @@ public class TileMap : MonoBehaviour
                 }
             }
 
-            if (i >= 0 && i < m_sideSize && j + 1 >= 0 && j + 1 < m_sideSize)
+            if (i >= 0 && i < m_height && j + 1 >= 0 && j + 1 < m_width)
             {
                 if (!m_tiles[i][j + 1].IsUsed())
                 {
@@ -259,7 +255,7 @@ public class TileMap : MonoBehaviour
                 }
             }
 
-            if (i - 1 >= 0 && i - 1 < m_sideSize && j + 1 >= 0 && j + 1 < m_sideSize)
+            if (i - 1 >= 0 && i - 1 < m_height && j + 1 >= 0 && j + 1 < m_width)
             {
                 if (!m_tiles[i - 1][j + 1].IsUsed())
                 {
@@ -273,7 +269,7 @@ public class TileMap : MonoBehaviour
         else if (purcentageOfApparition >= 33 && purcentageOfApparition <= 66)
         {
             m_tileField.initializeTile(false);
-            if (i >= 0 && i < m_sideSize && j >= 0 && j < m_sideSize)
+            if (i >= 0 && i < m_height && j >= 0 && j < m_width)
             {
                 if (!m_tiles[i][j].IsUsed())
                 {
@@ -283,7 +279,7 @@ public class TileMap : MonoBehaviour
                 }
             }
 
-            if (i + 1 >= 0 && i + 1 < m_sideSize && j >= 0 && j < m_sideSize)
+            if (i + 1 >= 0 && i + 1 < m_height && j >= 0 && j < m_width)
             {
                 if (!m_tiles[i + 1][j].IsUsed())
                 {
@@ -310,114 +306,203 @@ public class TileMap : MonoBehaviour
 
     private void DrawRiver1()
     {
-        m_tiles[7][1].SwapTile(m_tileVerticalRiver);
-        m_tiles[6][1].SwapTile(m_tileVerticalRiver);
-        m_tiles[5][1].SwapTile(m_tileUpRightRiver);
-        m_tiles[5][2].SwapTile(m_tileHorizonalRiver);
-        m_tiles[5][3].SwapTile(m_tileHorizonalRiver);
-        m_tiles[5][4].SwapTile(m_tileDownLeftRiver);
-        m_tiles[4][4].SwapTile(m_tileVerticalRiver);
-        m_tiles[3][4].SwapTile(m_tileVerticalRiver);
-        m_tiles[2][4].SwapTile(m_tileVerticalRiver);
-        m_tiles[1][4].SwapTile(m_tileUpRightRiver);
-        m_tiles[1][5].SwapTile(m_tileHorizonalRiver);
-        m_tiles[1][6].SwapTile(m_tileHorizonalRiver);
-        m_tiles[1][7].SwapTile(m_tileHorizonalRiver);
-
-        m_tiles[7][1].initializeTile();
-        m_tiles[6][1].initializeTile();
+        m_tiles[5][1].SwapTile(m_tileVerticalRiver);
         m_tiles[5][1].initializeTile();
-        m_tiles[5][2].initializeTile();
-        m_tiles[5][3].initializeTile();
-        m_tiles[5][4].initializeTile();
+
+        m_tiles[4][1].SwapTile(m_tileUpRightRiver);
+        m_tiles[4][1].initializeTile();
+
+        m_tiles[4][2].SwapTile(m_tileHorizontalRiver);
+        m_tiles[4][2].initializeTile();
+
+        m_tiles[4][3].SwapTile(m_tileHorizontalRiver);
+        m_tiles[4][3].initializeTile();
+
+        m_tiles[4][4].SwapTile(m_tileHorizontalRiver);
         m_tiles[4][4].initializeTile();
-        m_tiles[3][4].initializeTile();
-        m_tiles[2][4].initializeTile();
-        m_tiles[1][4].initializeTile();
-        m_tiles[1][5].initializeTile();
-        m_tiles[1][6].initializeTile();
-        m_tiles[1][7].initializeTile();
+
+        m_tiles[4][5].SwapTile(m_tileDownLeftRiver);
+        m_tiles[4][5].initializeTile();
+
+        m_tiles[3][5].SwapTile(m_tileVerticalRiver);
+        m_tiles[3][5].initializeTile();
+
+        m_tiles[2][5].SwapTile(m_tileUpRightRiver);
+        m_tiles[2][5].initializeTile();
+
+        m_tiles[2][6].SwapTile(m_tileHorizontalRiver);
+        m_tiles[2][6].initializeTile();
+
+        m_tiles[2][7].SwapTile(m_tileUpLeftRiver);
+        m_tiles[2][7].initializeTile();
+
+        m_tiles[3][7].SwapTile(m_tileDownRightRiver);
+        m_tiles[3][7].initializeTile();
+
+        m_tiles[3][8].SwapTile(m_tileHorizontalRiver);
+        m_tiles[3][8].initializeTile();
+
+        m_tiles[3][9].SwapTile(m_tileHorizontalRiver);
+        m_tiles[3][9].initializeTile();
+
+        m_tiles[3][10].SwapTile(m_tileDownLeftRiver);
+        m_tiles[3][10].initializeTile();
+
+        m_tiles[2][10].SwapTile(m_tileVerticalRiver);
+        m_tiles[2][10].initializeTile();
+
+        m_tiles[1][10].SwapTile(m_tileVerticalRiver);
+        m_tiles[1][10].initializeTile();
+
+        m_tiles[0][10].SwapTile(m_tileVerticalRiver);
+        m_tiles[0][10].initializeTile();
     }
 
     private void DrawRiver2()
     {
-        m_tiles[6][0].SwapTile(m_tileHorizonalRiver);
-        m_tiles[6][1].SwapTile(m_tileHorizonalRiver);
-        m_tiles[6][2].SwapTile(m_tileDownLeftRiver);
-        m_tiles[5][2].SwapTile(m_tileVerticalRiver);
-        m_tiles[4][2].SwapTile(m_tileVerticalRiver);
-        m_tiles[3][2].SwapTile(m_tileUpLeftRiver);
-        m_tiles[3][1].SwapTile(m_tileDownRightRiver);
-        m_tiles[2][1].SwapTile(m_tileVerticalRiver);
-        m_tiles[1][1].SwapTile(m_tileUpRightRiver);
-        m_tiles[1][2].SwapTile(m_tileHorizonalRiver);
-        m_tiles[1][3].SwapTile(m_tileHorizonalRiver);
-        m_tiles[1][4].SwapTile(m_tileUpLeftRiver);
-        m_tiles[2][4].SwapTile(m_tileDownRightRiver);
-        m_tiles[2][5].SwapTile(m_tileHorizonalRiver);
-        m_tiles[2][6].SwapTile(m_tileDownLeftRiver);
-        m_tiles[1][6].SwapTile(m_tileUpRightRiver);
-        m_tiles[1][7].SwapTile(m_tileHorizonalRiver);
+       
+        m_tiles[4][0].SwapTile(m_tileHorizontalRiver);
+        m_tiles[4][0].initializeTile();
 
-        m_tiles[6][0].initializeTile();
-        m_tiles[6][1].initializeTile();
-        m_tiles[6][2].initializeTile();
-        m_tiles[5][2].initializeTile();
-        m_tiles[4][2].initializeTile();
-        m_tiles[3][2].initializeTile();
+        m_tiles[4][1].SwapTile(m_tileDownLeftRiver);
+        m_tiles[4][1].initializeTile();
+
+        m_tiles[3][1].SwapTile(m_tileVerticalRiver);
         m_tiles[3][1].initializeTile();
+
+        m_tiles[2][1].SwapTile(m_tileUpRightRiver);
         m_tiles[2][1].initializeTile();
-        m_tiles[1][1].initializeTile();
-        m_tiles[1][2].initializeTile();
-        m_tiles[1][3].initializeTile();
-        m_tiles[1][4].initializeTile();
+
+        m_tiles[2][2].SwapTile(m_tileHorizontalRiver);
+        m_tiles[2][2].initializeTile();
+
+        m_tiles[2][3].SwapTile(m_tileHorizontalRiver);
+        m_tiles[2][3].initializeTile();
+
+        m_tiles[2][4].SwapTile(m_tileUpLeftRiver);
         m_tiles[2][4].initializeTile();
-        m_tiles[2][5].initializeTile();
-        m_tiles[2][6].initializeTile();
-        m_tiles[1][6].initializeTile();
-        m_tiles[1][7].initializeTile();
+
+        m_tiles[3][4].SwapTile(m_tileDownRightRiver);
+        m_tiles[3][4].initializeTile();
+
+        m_tiles[3][5].SwapTile(m_tileHorizontalRiver);
+        m_tiles[3][5].initializeTile();
+
+        m_tiles[3][6].SwapTile(m_tileUpLeftRiver);
+        m_tiles[3][6].initializeTile();
+
+        m_tiles[4][6].SwapTile(m_tileVerticalRiver);
+        m_tiles[4][6].initializeTile();
+
+        m_tiles[5][6].SwapTile(m_tileDownRightRiver);
+        m_tiles[5][6].initializeTile();
+
+        m_tiles[5][7].SwapTile(m_tileDownLeftRiver);
+        m_tiles[5][7].initializeTile();
+
+        m_tiles[4][7].SwapTile(m_tileVerticalRiver);
+        m_tiles[4][7].initializeTile();
+
+        m_tiles[3][7].SwapTile(m_tileUpRightRiver);
+        m_tiles[3][7].initializeTile();
+
+        m_tiles[3][8].SwapTile(m_tileDownLeftRiver);
+        m_tiles[3][8].initializeTile();
+
+        m_tiles[2][8].SwapTile(m_tileVerticalRiver);
+        m_tiles[2][8].initializeTile();
+
+        m_tiles[1][8].SwapTile(m_tileUpRightRiver);
+        m_tiles[1][8].initializeTile();
+
+        m_tiles[1][9].SwapTile(m_tileHorizontalRiver);
+        m_tiles[1][9].initializeTile();
+
+        m_tiles[1][10].SwapTile(m_tileHorizontalRiver);
+        m_tiles[1][10].initializeTile();
+
+        m_tiles[1][11].SwapTile(m_tileHorizontalRiver);
+        m_tiles[1][11].initializeTile();
     }
 
     private void DrawRiver3()
     {
-        m_tiles[7][1].SwapTile(m_tileVerticalRiver);
-        m_tiles[6][1].SwapTile(m_tileVerticalRiver);
-        m_tiles[5][1].SwapTile(m_tileUpRightRiver);
-        m_tiles[5][2].SwapTile(m_tileHorizonalRiver);
-        m_tiles[5][3].SwapTile(m_tileUpLeftRiver);
-        m_tiles[6][3].SwapTile(m_tileDownRightRiver);
-        m_tiles[6][4].SwapTile(m_tileHorizonalRiver);
-        m_tiles[6][5].SwapTile(m_tileDownLeftRiver);
-        m_tiles[5][5].SwapTile(m_tileVerticalRiver);
-        m_tiles[4][5].SwapTile(m_tileUpLeftRiver);
-        m_tiles[4][4].SwapTile(m_tileHorizonalRiver);
-        m_tiles[4][3].SwapTile(m_tileDownRightRiver);
-        m_tiles[3][3].SwapTile(m_tileVerticalRiver);
-        m_tiles[2][3].SwapTile(m_tileUpRightRiver);
-        m_tiles[2][4].SwapTile(m_tileHorizonalRiver);
-        m_tiles[2][5].SwapTile(m_tileHorizonalRiver);
-        m_tiles[2][6].SwapTile(m_tileDownLeftRiver);
-        m_tiles[1][6].SwapTile(m_tileUpRightRiver);
-        m_tiles[1][7].SwapTile(m_tileHorizonalRiver);
+        m_tiles[5][9].SwapTile(m_tileVerticalRiver);
+        m_tiles[5][9].initializeTile();
 
-        m_tiles[7][1].initializeTile();
-        m_tiles[6][1].initializeTile();
+        m_tiles[4][9].SwapTile(m_tileUpRightRiver);
+        m_tiles[4][9].initializeTile();
+
+        m_tiles[4][10].SwapTile(m_tileHorizontalRiver);
+        m_tiles[4][10].initializeTile();
+
+        m_tiles[4][11].SwapTile(m_tileHorizontalRiver);
+        m_tiles[4][11].initializeTile();
+
+        m_tiles[0][1].SwapTile(m_tileVerticalRiver);
+        m_tiles[0][1].initializeTile();
+
+        m_tiles[1][1].SwapTile(m_tileDownRightRiver);
+        m_tiles[1][1].initializeTile();
+
+        m_tiles[1][2].SwapTile(m_tileHorizontalRiver);
+        m_tiles[1][2].initializeTile();
+
+        m_tiles[1][3].SwapTile(m_tileDownLeftRiver);
+        m_tiles[1][3].initializeTile();
+        
+        m_tiles[0][3].SwapTile(m_tileVerticalRiver);
+        m_tiles[0][3].initializeTile();
+
+        m_tiles[5][1].SwapTile(m_tileVerticalRiver);
         m_tiles[5][1].initializeTile();
-        m_tiles[5][2].initializeTile();
-        m_tiles[5][3].initializeTile();
-        m_tiles[6][3].initializeTile();
-        m_tiles[6][4].initializeTile();
-        m_tiles[6][5].initializeTile();
-        m_tiles[5][5].initializeTile();
-        m_tiles[4][5].initializeTile();
-        m_tiles[4][4].initializeTile();
+
+        m_tiles[4][1].SwapTile(m_tileUpRightRiver);
+        m_tiles[4][1].initializeTile();
+
+        m_tiles[4][2].SwapTile(m_tileHorizontalRiver);
+        m_tiles[4][2].initializeTile();
+
+        m_tiles[4][3].SwapTile(m_tileDownLeftRiver);
         m_tiles[4][3].initializeTile();
+        
+        m_tiles[3][3].SwapTile(m_tileUpRightRiver);
         m_tiles[3][3].initializeTile();
-        m_tiles[2][3].initializeTile();
-        m_tiles[2][4].initializeTile();
-        m_tiles[2][5].initializeTile();
+
+        m_tiles[3][4].SwapTile(m_tileHorizontalRiver);
+        m_tiles[3][4].initializeTile();
+
+        m_tiles[3][5].SwapTile(m_tileHorizontalRiver);
+        m_tiles[3][5].initializeTile();
+
+        m_tiles[3][6].SwapTile(m_tileDownLeftRiver);
+        m_tiles[3][6].initializeTile();
+
+        m_tiles[2][6].SwapTile(m_tileUpRightRiver);
         m_tiles[2][6].initializeTile();
-        m_tiles[1][6].initializeTile();
-        m_tiles[1][7].initializeTile();
+
+        m_tiles[2][7].SwapTile(m_tileHorizontalRiver);
+        m_tiles[2][7].initializeTile();
+
+        m_tiles[2][8].SwapTile(m_tileDownLeftRiver);
+        m_tiles[2][8].initializeTile();
+
+        m_tiles[1][8].SwapTile(m_tileUpRightRiver);
+        m_tiles[1][8].initializeTile();
+
+        m_tiles[1][9].SwapTile(m_tileUpLeftRiver);
+        m_tiles[1][9].initializeTile();
+
+        m_tiles[2][9].SwapTile(m_tileDownRightRiver);
+        m_tiles[2][9].initializeTile();
+
+        m_tiles[2][10].SwapTile(m_tileDownLeftRiver);
+        m_tiles[2][10].initializeTile();
+
+        m_tiles[1][10].SwapTile(m_tileUpRightRiver);
+        m_tiles[1][10].initializeTile();
+
+        m_tiles[1][11].SwapTile(m_tileHorizontalRiver);
+        m_tiles[1][11].initializeTile();
     }
 }
