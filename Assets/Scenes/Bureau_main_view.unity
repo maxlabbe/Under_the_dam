@@ -630,13 +630,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 860510590}
-  m_sideSize: 8
+  m_height: 6
+  m_width: 12
   m_tile: {fileID: 34525263}
   m_tileScale: 7
   m_tileVillage: {fileID: 2504172082021847377, guid: d6adbf1726e18f4488773aca70cb4d9d, type: 3}
   m_tileBeaverCamp: {fileID: 869570649203047647, guid: 6dab6b1dc1e2ef34cbf2066b950d7b53, type: 3}
   m_tileVerticalRiver: {fileID: 3375616035657743938, guid: b3ee74e7694d82e44a94ca9da7af3aac, type: 3}
-  m_tileHorizonalRiver: {fileID: 3908714573073958526, guid: e2c661571a684f24f9a717e8309ad924, type: 3}
+  m_tileHorizontalRiver: {fileID: 3908714573073958526, guid: e2c661571a684f24f9a717e8309ad924, type: 3}
   m_tileUpLeftRiver: {fileID: 5440320881941180432, guid: ac1f8822dd52873488ec3b0354803c43, type: 3}
   m_tileUpRightRiver: {fileID: 5501454773097677696, guid: a64d7ed5de881e24987fda0b268d8820, type: 3}
   m_tileDownLeftRiver: {fileID: 3789882967530771653, guid: 3b8d2e7547ccc1a439bc0bae53a6fd0c, type: 3}
