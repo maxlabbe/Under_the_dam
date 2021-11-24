@@ -12,6 +12,7 @@ public class Tile : MonoBehaviour
     [SerializeField] private GameObject m_highlight;
     
     public GameObject day_manager;
+    public GameObject map_action_selector;
 
     protected bool m_isUsed = false;
     public virtual void initializeTile()
@@ -76,7 +77,5 @@ public class Tile : MonoBehaviour
         QueueAction queue = this.day_manager.GetComponent<DayManager>().getQueue();
         Action a = new Action();
         queue.addActionToQueue(a);
-
-
     }
 }

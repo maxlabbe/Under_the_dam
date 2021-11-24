@@ -37,7 +37,7 @@ public class DayManager : MonoBehaviour
         Dictionary<string, int> rewardsFromTheDay = this.queue.doAllActions();
         
         this.daysCount.SetText("Days : {0}", this.nDays);
-        this.actionsRewards.SetText("R�compenses de la journ�e : \nBois : +{0}\nNourriture : +{1}\nSak� : +{2}",
+        this.actionsRewards.SetText("Récompenses de la journée : \nBois : +{0}\nNourriture : +{1}\nSaké : +{2}",
             rewardsFromTheDay["Wood"], 
             rewardsFromTheDay["Food"], 
             rewardsFromTheDay["Sake"]);
