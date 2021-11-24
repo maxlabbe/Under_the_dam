@@ -8,7 +8,7 @@ public class BeaverGauge : MonoBehaviour
     public Image mask;
     float originalSize;
     private float testPercentage=0;
-
+    public HumorManager humor;
     private void Awake()
     {
         instance = this;
@@ -27,12 +27,15 @@ public class BeaverGauge : MonoBehaviour
 
     private void Update()
     {
+        //float tauntValue = humor.GetBeaversTauntValue();
+        //BeaverGauge.instance.SetValue(tauntValue);
+        //For testing
+        /*
         testPercentage += 0.001f;
         if (testPercentage>1)
         {
             testPercentage = 0;
         }
-        //For testing
-        SetValue(testPercentage);
+        BeaverGauge.instance.SetValue(testPercentage);*/
     }
 }

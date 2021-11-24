@@ -32,4 +32,12 @@ public class TileWood : Tile
             }
         }
     }
+
+
+    public new void OnMouseDown()
+    {
+        QueueAction queue = this.day_manager.GetComponent<DayManager>().getQueue();
+        WoodAction a = new WoodAction(2);
+        queue.addActionToQueue(a);
+    }
 }

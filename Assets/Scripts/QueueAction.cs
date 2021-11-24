@@ -18,6 +18,8 @@ public class QueueAction
         rewards.Add("Food",   0);
         rewards.Add("Beaver", 0);
         rewards.Add("Sake",   0);
+        rewards.Add("Beaver_dis", 0);
+        rewards.Add("Human_dis", 0);
 
 
         foreach (Action action in this.queue.ToArray())
@@ -41,6 +43,8 @@ public class QueueAction
         dict["Food"] = dict["Food"] + dictToAdd["Food"];
         dict["Beaver"] = dict["Beaver"] + dictToAdd["Beaver"];
         dict["Sake"] = dict["Sake"] + dictToAdd["Sake"];
+        dict["Beaver_dis"] = dict["Beaver_dis"] + dictToAdd["Beaver_dis"];
+        dict["Human_dis"] = dict["Human_dis"] + dictToAdd["Human_dis"];
 
         return dict;
     }
