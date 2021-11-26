@@ -89,7 +89,7 @@ public class Tile : MonoBehaviour
     public void OnMouseDown()
     {
         QueueAction queue = this.day_manager.GetComponent<DayManager>().getQueue();
-        Action action = new Action(m_wood, m_food, m_isHumanVillage);
+        Action action = new Action(m_wood, m_food, m_type);
         queue.addActionToQueue(action);
     }
 }

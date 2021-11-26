@@ -2,23 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Action{
+public class Action
+{
 
     public int daysToFinish;
     private int m_timeToDo;
     private bool inProg;
     private int m_wood;
     private int m_food;
-    private bool m_isAttack;
+    private string m_type;
     public int n_beavers;
     private Dictionary<string, int> rewards;
 
-    public Action(int wood, int food, bool is_attack) 
+    public Action(int wood, int food, string type)
     {
         m_wood = wood;
         m_food = food;
         n_beavers = 5;
-        m_isAttack = is_attack;
+        m_type = type;
         this.rewards = new Dictionary<string, int>();
         this.daysToFinish = 3;
         this.m_timeToDo = this.daysToFinish;
@@ -34,13 +35,13 @@ public class Action{
     public bool doSelf()
     {
         this.daysToFinish--;
-        if(this.daysToFinish <= 0)
+        if (this.daysToFinish <= 0)
         {
             this.inProg = false;
         }
         return !this.inProg;
     }
-    
+
 
     public Dictionary<string, int> finishAction()
     {
@@ -58,12 +59,12 @@ public class Action{
         return m_timeToDo;
     }
 
-    public bool isAttack()
+    public string getType()
     {
-        return m_isAttack;
+        return m_type;
     }
 
-    public Dictionary<string,int> getRewardsDict()
+    public Dictionary<string, int> getRewardsDict()
     {
         return this.rewards;
     }
@@ -95,14 +96,20 @@ public class Action{
 
     public void DoAction()
     {
-        if(!m_isAttack)
+        switch (m_type)
         {
-            setRewardsDict(m_wood, m_food, n_beavers, 0, m_wood / 2, 0);
-        }
-
-        else
-        {
-            setRewardsDict(0, 0, n_beavers, 2, 0, n_beavers / 2);
+            case "village":
+                setRewardsDict(0, 0, n_beavers, 2, 0, n_beavers / 2);
+                break;
+            case "field":
+                setRewardsDict(m_wood, m_food, n_beavers, 0, m_wood / 2, 0);
+                break;
+            case "wood":
+                setRewardsDict(m_wood, m_food, n_beavers, 0, m_wood / 2, 0);
+                break;
+            default:
+                setRewardsDict(0, 0, 0, 0, 0, 0);
+                break;
         }
     }
 }

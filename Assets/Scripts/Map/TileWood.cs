@@ -14,7 +14,7 @@ public class TileWood : Tile
                 m_sprite = m_bigWood;
                 gameObject.GetComponent<SpriteRenderer>().sprite = m_sprite;
 
-                m_type = "big wood";
+                m_type = "wood";
                 m_food = 0;
                 m_wood = 10;
                 m_isBeaverCamp = false;
@@ -27,7 +27,7 @@ public class TileWood : Tile
                 m_sprite = m_littleWood;
                 gameObject.GetComponent<SpriteRenderer>().sprite = m_sprite;
 
-                m_type = "little wood";
+                m_type = "wood";
                 m_food = 0;
                 m_wood = 4;
                 m_isBeaverCamp = false;

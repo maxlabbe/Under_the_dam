@@ -55,7 +55,7 @@ public class MiniActionManager : MonoBehaviour
                 float advancement = daysToFinish / timeToDo;
 
                 m_miniEmplacements[actionIndex].GetComponentInChildren<Image>().fillAmount = 1.0f - advancement;
-                if (m_actionsInQueue[actionIndex].isAttack())
+                if (m_actionsInQueue[actionIndex].getType() == "village")
                 {
                     m_miniEmplacements[actionIndex].GetComponent<SpriteRenderer>().sprite = m_attackSprite;
                     m_miniEmplacements[actionIndex].GetComponentInChildren<Image>().color = Color.red;
@@ -83,7 +83,7 @@ public class MiniActionManager : MonoBehaviour
 
                 m_miniEmplacements[actionIndex].GetComponentInChildren<Image>().fillAmount = 1.0f - advancement;
 
-                if (m_actionsInQueue[actionIndex].isAttack())
+                if (m_actionsInQueue[actionIndex].getType() == "village")
                 {
                     m_miniEmplacements[actionIndex].GetComponent<SpriteRenderer>().sprite = m_attackSprite;
                     m_miniEmplacements[actionIndex].GetComponentInChildren<Image>().color = Color.red;
