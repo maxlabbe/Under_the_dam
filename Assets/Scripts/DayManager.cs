@@ -12,6 +12,9 @@ public class DayManager : MonoBehaviour
 
     public HumorManager humorManager;
 
+    public BeaverGauge m_beaverGauge;
+    public HumanGauge m_humanGauge;
+
     
     // Start is called before the first frame update
     void Start()
@@ -22,14 +25,7 @@ public class DayManager : MonoBehaviour
     }
 
     void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            this.queue.addActionToQueue(new Action());
-            Debug.Log("Added action to queue");
-            Debug.Log("Queue has "+ this.queue.getQueueList().Count+" actions");
-        }
-    }
+    {}
 
     public void passDay()
     {
@@ -41,11 +37,11 @@ public class DayManager : MonoBehaviour
             rewardsFromTheDay["Wood"], 
             rewardsFromTheDay["Food"], 
             rewardsFromTheDay["Sake"]);
-        humorManager.AddBeaversTaunt(0.20f);
-        humorManager.AddHumansTaunt(0.10f);
+        humorManager.AddBeaversTaunt(rewardsFromTheDay["Beaver_dis"]);
+        humorManager.AddHumansTaunt(rewardsFromTheDay["Human_dis"]);
 
-        BeaverGauge.instance.SetValue(humorManager.GetBeaversTauntValue());
-        HumanGauge.instance.SetValue(humorManager.GetHumansTauntValue());
+        m_beaverGauge.SetValue(humorManager.GetBeaversTauntValue());
+        m_humanGauge.SetValue(humorManager.GetHumansTauntValue());
     }
 
     public QueueAction getQueue()

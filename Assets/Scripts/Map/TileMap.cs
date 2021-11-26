@@ -18,6 +18,7 @@ public class TileMap : MonoBehaviour
     [SerializeField] private TileField m_tileField;
     [SerializeField] private TileWood m_tileWood;
 
+
     private const int LARGE_WOOD_TILES = 5;
     private const int MEDIUM_WOOD_TILES = 3;
 
@@ -78,7 +79,6 @@ public class TileMap : MonoBehaviour
     private void DrawRiver()
     {
         int randomRiver = (int)(Random.Range(0, 3.0f));
-        Debug.Log(randomRiver);
         switch (randomRiver){
             case 1:
                 DrawRiver2();

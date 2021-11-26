@@ -18,6 +18,8 @@ public class TileField : Tile
                 m_type = "big field";
                 m_food = 10;
                 m_wood = 0;
+                m_isBeaverCamp = false;
+                m_isHumanVillage = false;
                 m_isWater = false;
             }
 
@@ -29,6 +31,8 @@ public class TileField : Tile
                 m_type = "little field";
                 m_food = 4;
                 m_wood = 0;
+                m_isBeaverCamp = false;
+                m_isHumanVillage = false;
                 m_isWater = false;
             }
         }

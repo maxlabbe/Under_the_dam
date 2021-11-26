@@ -22,7 +22,7 @@ public class BeaverGauge : MonoBehaviour
 
     public void SetValue(float value)
     {				      
-        mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalSize * value);
+        mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalSize * value/100);
     }
 
     private void Update()

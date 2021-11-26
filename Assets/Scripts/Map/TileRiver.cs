@@ -11,6 +11,8 @@ public class TileRiver : Tile
         m_type = "water";
         m_food = 0;
         m_wood = 0;
+        m_isBeaverCamp = false;
+        m_isHumanVillage = false;
         m_isWater = true;
 
     }

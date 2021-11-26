@@ -17,6 +17,8 @@ public class TileWood : Tile
                 m_type = "big wood";
                 m_food = 0;
                 m_wood = 10;
+                m_isBeaverCamp = false;
+                m_isHumanVillage = false;
                 m_isWater = false;
             }
 
@@ -28,16 +30,10 @@ public class TileWood : Tile
                 m_type = "little wood";
                 m_food = 0;
                 m_wood = 4;
+                m_isBeaverCamp = false;
+                m_isHumanVillage = false;
                 m_isWater = false;
             }
         }
-    }
-
-
-    public new void OnMouseDown()
-    {
-        QueueAction queue = this.day_manager.GetComponent<DayManager>().getQueue();
-        WoodAction a = new WoodAction(2);
-        queue.addActionToQueue(a);
     }
 }

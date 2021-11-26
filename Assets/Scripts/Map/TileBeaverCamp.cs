@@ -11,6 +11,8 @@ public class TileBeaverCamp : Tile
         m_type = "beaver camp";
         m_food = 0;
         m_wood = 0;
+        m_isBeaverCamp = true;
+        m_isHumanVillage = false;
         m_isWater = false;
     }
 }

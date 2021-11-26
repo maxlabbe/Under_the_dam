@@ -31,9 +31,6 @@ public class QueueAction
                 removeActionFromQueue(action);
             }
         }
-        //Debug.Log("Rewards\n");
-        //Debug.Log(rewards.ToString());
-        Debug.Log("     Queue has " + this.queue.Count + " actions");
         return rewards;
     }
 
@@ -61,7 +58,6 @@ public class QueueAction
 
     public void addActionToQueue(Action a)
     {
-        Debug.Log("Added action to queue (from QueueAction.cs");
         this.queue.Add(a);
     }
 

@@ -11,6 +11,8 @@ public class TileVillage : Tile
         m_type = "village";
         m_food = 0;
         m_wood = 0;
+        m_isBeaverCamp = false;
+        m_isHumanVillage = true;
         m_isWater = false;
     }
 }

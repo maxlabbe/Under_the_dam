@@ -8,11 +8,13 @@ public class Tile : MonoBehaviour
     protected int m_wood;
     protected int m_food;
     protected bool m_isWater;
+    protected bool m_isHumanVillage;
+    protected bool m_isBeaverCamp;
     [SerializeField] protected Sprite m_sprite;
     [SerializeField] private GameObject m_highlight;
     
     public GameObject day_manager;
-    public GameObject map_action_selector;
+    //public GameObject map_action_selector;
 
     protected bool m_isUsed = false;
     public virtual void initializeTile()
@@ -37,6 +39,16 @@ public class Tile : MonoBehaviour
         return m_isWater;
     }
 
+    public bool isBeaverCamp()
+    {
+        return m_isBeaverCamp;
+    }
+
+    public bool isHumanVillage()
+    {
+        return m_isHumanVillage;
+    }
+
     public Sprite GetSprite()
     {
         return m_sprite;
@@ -57,6 +69,8 @@ public class Tile : MonoBehaviour
         m_wood = tile.GetWood();
         m_food = tile.GetFood();
         m_isWater = tile.IsWater();
+        m_isBeaverCamp = tile.isBeaverCamp();
+        m_isHumanVillage = tile.isHumanVillage();
         m_sprite = tile.GetSprite();
         m_type = tile.GetTileType();
     }
@@ -75,7 +89,7 @@ public class Tile : MonoBehaviour
     public void OnMouseDown()
     {
         QueueAction queue = this.day_manager.GetComponent<DayManager>().getQueue();
-        Action a = new Action();
-        queue.addActionToQueue(a);
+        Action action = new Action(m_wood, m_food, m_isHumanVillage);
+        queue.addActionToQueue(action);
     }
 }
