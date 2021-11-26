@@ -5,6 +5,7 @@ using UnityEngine;
 public class Action{
 
     public int daysToFinish;
+    private int m_timeToDo;
     private bool inProg;
     private int m_wood;
     private int m_food;
@@ -20,6 +21,7 @@ public class Action{
         m_isAttack = is_attack;
         this.rewards = new Dictionary<string, int>();
         this.daysToFinish = 3;
+        this.m_timeToDo = this.daysToFinish;
         this.inProg = true;
         this.rewards.Add("Wood", 0);
         this.rewards.Add("Food", 0);
@@ -49,6 +51,16 @@ public class Action{
     public int getDaysToFinish()
     {
         return this.daysToFinish;
+    }
+
+    public int getTimeToDo()
+    {
+        return m_timeToDo;
+    }
+
+    public bool isAttack()
+    {
+        return m_isAttack;
     }
 
     public Dictionary<string,int> getRewardsDict()

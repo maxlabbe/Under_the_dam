@@ -15,6 +15,8 @@ public class DayManager : MonoBehaviour
     public BeaverGauge m_beaverGauge;
     public HumanGauge m_humanGauge;
 
+    public MiniActionManager miniActionManager;
+
     
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,8 @@ public class DayManager : MonoBehaviour
 
         m_beaverGauge.SetValue(humorManager.GetBeaversTauntValue());
         m_humanGauge.SetValue(humorManager.GetHumansTauntValue());
+
+        miniActionManager.UpdateMinis(queue.getQueueList());
     }
 
     public QueueAction getQueue()
