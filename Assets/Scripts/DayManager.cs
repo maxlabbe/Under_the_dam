@@ -11,6 +11,8 @@ public class DayManager : MonoBehaviour
     public TextMeshProUGUI actionsRewards;
 
     public HumorManager humorManager;
+    public RessourcesManager ressources_manager;
+
 
     public BeaverGauge m_beaverGauge;
     public HumanGauge m_humanGauge;
@@ -39,13 +41,17 @@ public class DayManager : MonoBehaviour
             rewardsFromTheDay["Wood"], 
             rewardsFromTheDay["Food"], 
             rewardsFromTheDay["Sake"]);
-        humorManager.AddBeaversTaunt(rewardsFromTheDay["Beaver_dis"]);
-        humorManager.AddHumansTaunt(rewardsFromTheDay["Human_dis"]);
+        this.humorManager.AddBeaversTaunt(rewardsFromTheDay["Beaver_dis"]);
+        this.humorManager.AddHumansTaunt(rewardsFromTheDay["Human_dis"]);
 
-        m_beaverGauge.SetValue(humorManager.GetBeaversTauntValue());
-        m_humanGauge.SetValue(humorManager.GetHumansTauntValue());
+        this.m_beaverGauge.SetValue(humorManager.GetBeaversTauntValue());
+        this.m_humanGauge.SetValue(humorManager.GetHumansTauntValue());
 
-        miniActionManager.UpdateMinis(queue.getQueueList());
+        this.ressources_manager.AddFood(rewardsFromTheDay["Food"]);
+        this.ressources_manager.AddWood(rewardsFromTheDay["Wood"]);
+        this.ressources_manager.AddSake(rewardsFromTheDay["Sake"]);
+
+        this.miniActionManager.UpdateMinis(queue.getQueueList());
     }
 
     public QueueAction getQueue()

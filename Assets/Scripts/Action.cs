@@ -16,10 +16,10 @@ public class Action
 
     public Action(int wood, int food, string type)
     {
-        m_wood = wood;
-        m_food = food;
-        n_beavers = 5;
-        m_type = type;
+        this.m_wood = wood;
+        this.m_food = food;
+        this.n_beavers = 5;
+        this.m_type = type;
         this.rewards = new Dictionary<string, int>();
         this.daysToFinish = 3;
         this.m_timeToDo = this.daysToFinish;
