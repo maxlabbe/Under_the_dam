@@ -6,29 +6,14 @@ using TMPro;
 public class WhareHouse_Manager : MonoBehaviour
 {
     public RessourcesManager ressources_manager;
-    public TextMeshProUGUI ressources_status;
-    void Start()
-    {
-        /*this.ressources_status.SetText(
-            "BOIS       : {0}\n" +
-            "NOURRITURE : {1}\n" +
-            "SAKE       : {2}\n",
-            this.ressources_manager.GetWood(),
-            this.ressources_manager.Getfood(),
-            this.ressources_manager.GetSake()
-         );*/
-    }
+    public TextMeshProUGUI[] ressources_status;
 
     // Update is called once per frame
-    void Update()
+    public void UpdateWarehousNumbers()
     {
-        this.ressources_status.SetText(
-            "BOIS       : {0}\n" +
-            "NOURRITURE : {1}\n" +
-            "SAKE       : {2}\n",
-            this.ressources_manager.GetWood(),
-            this.ressources_manager.Getfood(),
-            this.ressources_manager.GetSake()
-         );
+        ressources_status[0].SetText(ressources_manager.GetWood().ToString());
+        ressources_status[1].SetText(ressources_manager.GetFood().ToString());
+        ressources_status[2].SetText(ressources_manager.GetToothForce().ToString());
+        ressources_status[3].SetText(ressources_manager.GetSake().ToString());
     }
 }

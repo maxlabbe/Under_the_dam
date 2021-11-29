@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class RessourcesManager : MonoBehaviour
 {
-    public DayManager day_manager;
-    public GameObject warehouse_panel;
     private int m_wood;
     private int m_food;
     private int m_toothForce;
@@ -26,7 +24,7 @@ public class RessourcesManager : MonoBehaviour
         this.m_wood -= wood;
     }
 
-    public int Getfood()
+    public int GetFood()
     {
         return this.m_food;
     }
