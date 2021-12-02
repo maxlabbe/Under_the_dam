@@ -5,12 +5,14 @@ using UnityEngine;
 public class BeaverManager : MonoBehaviour
 {
     private const int START_BEAVERS_NUMBER = 5;
-    [SerializeField] private List<Beaver> m_beavers;
+    [SerializeField] private List<Beaver> m_freeBeavers;
+    [SerializeField] private List<Beaver> m_workingBeavers;
     [SerializeField] DayManager m_dayManager;
 
     void Start()
     {
-        m_beavers = new List<Beaver>();
+        m_freeBeavers = new List<Beaver>();
+        m_workingBeavers = new List<Beaver>();
         addBeavers(START_BEAVERS_NUMBER);
     }
 
@@ -18,51 +20,86 @@ public class BeaverManager : MonoBehaviour
     {
         for (int i = 0; i < numberOfBeavers; i++)
         {
-            m_beavers.Add(new Beaver());
+            m_freeBeavers.Add(new Beaver());
         }
     }
 
     public void withdrawBeaver(Beaver beaver)
     {
-        m_beavers.Remove(beaver);
+        m_freeBeavers.Remove(beaver);
     }
 
     public int getNumberOfBeavers()
     {
-        return m_beavers.Count;
+        return m_freeBeavers.Count + m_workingBeavers.Count;
     }
 
     public int getFreeBeaversNumber()
     {
-        int freeBeaver = 0;
-        for(int i = 0; i < m_beavers.Count; i++)
-        {
-            if(m_beavers[i].isFree())
-            {
-                freeBeaver++;
-            }
-        }
-
-        return freeBeaver;
+        return m_freeBeavers.Count;
     }
 
     public int getOccupiedBeaversNumber()
     {
-        return m_beavers.Count - getFreeBeaversNumber();
+        return m_workingBeavers.Count;
+    }
+
+    public void goToWork(int numberOfBeavers)
+    {
+        for(int i = 0; i < numberOfBeavers; i++)
+        {
+            m_freeBeavers[i].doSomething();
+            m_workingBeavers.Add(m_freeBeavers[i]);
+            m_freeBeavers.Remove(m_freeBeavers[i]);
+        }
+    }
+
+    public void comeFromWork(int numberOfBeavers)
+    {
+        for (int i = 0; i < numberOfBeavers; i++)
+        {
+            m_workingBeavers[i].isResting();
+            m_freeBeavers.Add(m_workingBeavers[i]);
+            m_workingBeavers.Remove(m_workingBeavers[i]);
+        }
     }
 
     public void LeavingBeavers()
     {
         float tauntValue = m_dayManager.getHumorManager().GetBeaversTauntValue();
-        if(tauntValue > 50 )
+        if(tauntValue > 50.0f )
         {
             int freeBeavers = getFreeBeaversNumber();
-            float purcentageOfBeaverToLeave = tauntValue - 40.0f;
+            float purcentageOfBeaverToLeave = (tauntValue - 40.0f)/100;
+            int beaverToLeave = (int)(freeBeavers * purcentageOfBeaverToLeave);
+
+            for (int i = 0; i < beaverToLeave; i++)
+            {
+                if(i < getFreeBeaversNumber())
+                {
+                    m_freeBeavers.Remove(m_freeBeavers[i]);
+                }
+            }
         }
     }
 
     public void ArrivingBeavers()
     {
+        float tauntValue = m_dayManager.getHumorManager().GetHumansTauntValue();
+        if (tauntValue > 20.0f)
+        {
+            int freeBeavers = getFreeBeaversNumber();
+            float purcentageOfBeaverToCome = (tauntValue - 10.0f) / 100;
+            int beaverToCome = (int)(freeBeavers * purcentageOfBeaverToCome);
+            Debug.Log(beaverToCome);
 
+            for (int i = 0; i < beaverToCome; i++)
+            {
+                if (i < getFreeBeaversNumber())
+                {
+                    m_freeBeavers.Add(new Beaver());
+                }
+            }
+        }
     }
 }

@@ -24,18 +24,4 @@ public class BeaverGauge : MonoBehaviour
     {				      
         mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalSize * value/100);
     }
-
-    private void Update()
-    {
-        //float tauntValue = humor.GetBeaversTauntValue();
-        //BeaverGauge.instance.SetValue(tauntValue);
-        //For testing
-        /*
-        testPercentage += 0.001f;
-        if (testPercentage>1)
-        {
-            testPercentage = 0;
-        }
-        BeaverGauge.instance.SetValue(testPercentage);*/
-    }
 }

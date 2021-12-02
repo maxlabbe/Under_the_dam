@@ -6,7 +6,7 @@ public class RessourcesManager : MonoBehaviour
 {
     private int m_wood;
     private int m_food;
-    private int m_toothForce;
+    [SerializeField] private BeaverManager m_toothForce;
     private int m_sake;
     
     public int GetWood()
@@ -41,17 +41,17 @@ public class RessourcesManager : MonoBehaviour
 
     public int GetToothForce()
     {
-        return this.m_toothForce;
+        return this.m_toothForce.getNumberOfBeavers();
     }
 
     public void AddToothForces(int toothForces)
     {
-        this.m_toothForce += toothForces;
+        this.m_toothForce.addBeavers(toothForces);
     }
 
     public void UseToothForces(int toothForces)
     {
-        this.m_toothForce -= toothForces;
+        this.m_toothForce.goToWork(toothForces);
     }
 
     public int GetSake()
