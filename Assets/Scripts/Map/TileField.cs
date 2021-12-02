@@ -15,7 +15,7 @@ public class TileField : Tile
                 m_sprite = m_bigField;
                 gameObject.GetComponent<SpriteRenderer>().sprite = m_sprite;
 
-                m_type = "field";
+                m_type = "big_field";
                 m_food = 10;
                 m_wood = 0;
                 m_isBeaverCamp = false;

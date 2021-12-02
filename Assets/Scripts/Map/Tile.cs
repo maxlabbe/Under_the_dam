@@ -12,6 +12,7 @@ public class Tile : MonoBehaviour
     protected bool m_isBeaverCamp;
     [SerializeField] protected Sprite m_sprite;
     [SerializeField] private GameObject m_highlight;
+    [SerializeField] private GameObject m_action_choice_maker;
     
     public GameObject day_manager;
     //public GameObject map_action_selector;
@@ -88,6 +89,8 @@ public class Tile : MonoBehaviour
 
     public void OnMouseDown()
     {
+        this.m_action_choice_maker.SetActive(true);
+        this.m_action_choice_maker.transform.Find("actions_status_texts").GetComponent<Choices_Panel>().setAllChoices(m_type);
         QueueAction queue = this.day_manager.GetComponent<DayManager>().getQueue();
         Action action = new Action(m_wood, m_food, m_type);
         queue.addActionToQueue(action);
