@@ -59,4 +59,9 @@ public class DayManager : MonoBehaviour
         return this.queue;
     }
 
+    public HumorManager getHumorManager()
+    {
+        return humorManager;
+    }
+
 }
