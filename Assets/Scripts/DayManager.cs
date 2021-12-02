@@ -47,7 +47,6 @@ public class DayManager : MonoBehaviour
             rewardsFromTheDay["Sake"]);
         this.humorManager.AddBeaversTaunt(rewardsFromTheDay["Beaver_dis"]);
         this.humorManager.AddHumansTaunt(rewardsFromTheDay["Human_dis"]);
-        this.humorManager.AddHumansTaunt(100f);
         this.m_beaverGauge.SetValue(humorManager.GetBeaversTauntValue());
         this.m_humanGauge.SetValue(humorManager.GetHumansTauntValue());
 

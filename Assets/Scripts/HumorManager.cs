@@ -10,7 +10,7 @@ public class HumorManager{
     public HumorManager()
     {
         m_humans_gauge = 0f;
-        m_beavers_gauge = 90f;
+        m_beavers_gauge = 0f;
     }
     public float GetHumansTauntValue()
     {
