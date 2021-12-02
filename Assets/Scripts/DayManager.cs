@@ -17,6 +17,10 @@ public class DayManager : MonoBehaviour
     public BeaverGauge m_beaverGauge;
     public HumanGauge m_humanGauge;
 
+    public GameObject panelWin;
+
+    public GameObject panelLost;
+
     public MiniActionManager miniActionManager;
 
     
@@ -52,6 +56,15 @@ public class DayManager : MonoBehaviour
         this.ressources_manager.AddSake(rewardsFromTheDay["Sake"]);
 
         this.miniActionManager.UpdateMinis(queue.getQueueList());
+        if (humorManager.GetBeaversTauntValue() >= 100f)
+        {
+            Debug.Log("ici");
+            this.panelLost.SetActive(true);
+        }
+        else if (humorManager.GetHumansTauntValue() >= 100f)
+        {
+            this.panelWin.SetActive(true);
+        }
     }
 
     public QueueAction getQueue()
