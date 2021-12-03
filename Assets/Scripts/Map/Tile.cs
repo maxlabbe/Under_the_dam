@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Tile : MonoBehaviour
 {
@@ -89,6 +90,7 @@ public class Tile : MonoBehaviour
 
     public void OnMouseDown()
     {
+        if(EventSystem.current.IsPointerOverGameObject()) return;
         this.m_action_choice_maker.SetActive(true);
         this.m_action_choice_maker.transform.Find("actions_status_texts").GetComponent<Choices_Panel>().setAllChoices(m_type);
         QueueAction queue = this.day_manager.GetComponent<DayManager>().getQueue();

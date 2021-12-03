@@ -10,6 +10,8 @@ public class AChoice : MonoBehaviour
     public TextMeshProUGUI nameTextMesh;
     public TextMeshProUGUI numberTextMesh;
     public GameObject typeSprite;
+    // public GameObject nonChoosableNeed;
+    // public GameObject choosableNeed;
 
     public string nameChoice;
 
@@ -24,9 +26,9 @@ public class AChoice : MonoBehaviour
         numberMax = number_max;
         GameObject nameGameObject = gameObject.transform.Find("name").gameObject;
         nameTextMesh = nameGameObject.GetComponent<TextMeshProUGUI>();
-        GameObject numberGameObject = gameObject.transform.Find("number").gameObject;
-        numberTextMesh = numberGameObject.GetComponent<TextMeshProUGUI>();
-        typeSprite = gameObject.transform.Find("type_of_ressources").gameObject;
+        // GameObject numberGameObject = gameObject.transform.Find("number").gameObject;
+        // numberTextMesh = numberGameObject.GetComponent<TextMeshProUGUI>();
+        // typeSprite = gameObject.transform.Find("type_of_ressources").gameObject;
     }
 
     // Start is called before the first frame update
