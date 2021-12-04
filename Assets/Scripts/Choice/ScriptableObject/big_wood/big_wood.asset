@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77a32d154a00a374685b2cb56eddc1c6, type: 3}
-  m_Name: wood
+  m_Name: big_wood
   m_EditorClassIdentifier: 
   title: "For\xEAt"
   description: "Voulez-vous envoyer des castors r\xE9colter du bois ?"

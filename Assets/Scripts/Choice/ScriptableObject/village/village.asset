@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77a32d154a00a374685b2cb56eddc1c6, type: 3}
-  m_Name: wood
+  m_Name: village
   m_EditorClassIdentifier: 
-  title: "For\xEAt"
-  description: "Voulez-vous envoyer des castors r\xE9colter du bois ?"
+  title: Village des humains
+  description: Voici le village des humains
   choices:
-  - {fileID: 11400000, guid: bfea69076fc874740b32637116d9d3ce, type: 2}
-  - {fileID: 11400000, guid: 1e33ed18175569243990e194af584b5f, type: 2}
+  - {fileID: 11400000, guid: 48c2e69dd2c8fa24ab65e1e35e4b745a, type: 2}
+  - {fileID: 11400000, guid: 2d1edc496cc77414cb0f053fc2b23b4c, type: 2}

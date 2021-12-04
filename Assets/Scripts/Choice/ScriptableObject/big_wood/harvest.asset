@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 397975fd348f9f945843b628102bbed7, type: 3}
-  m_Name: template
+  m_Name: harvest
   m_EditorClassIdentifier: 
-  nameChoice: 
+  nameChoice: "R\xE9colter bois"
   needs:
   - type: wood
     value: 0
@@ -21,14 +21,14 @@ MonoBehaviour:
     value: 0
     isChoosable: 0
   - type: beaver
-    value: 0
+    value: 15
     isChoosable: 1
   - type: sake
-    value: 0
+    value: 5
     isChoosable: 1
   rewards:
   - type: wood
-    value: 0
+    value: 6
   - type: food
     value: 0
   - type: beaver
@@ -36,12 +36,12 @@ MonoBehaviour:
   - type: sake
     value: 0
   - type: beaver_dis
-    value: 0
+    value: 1
   - type: human_dis
     value: 0
   fail:
   - type: wood
-    value: 0
+    value: 1
   - type: food
     value: 0
   - type: beaver
@@ -49,7 +49,7 @@ MonoBehaviour:
   - type: sake
     value: 0
   - type: beaver_dis
-    value: 0
+    value: 2
   - type: human_dis
     value: 0
-  probability: 0
+  probability: 0.95

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 397975fd348f9f945843b628102bbed7, type: 3}
-  m_Name: template
+  m_Name: attaquer
   m_EditorClassIdentifier: 
-  nameChoice: 
+  nameChoice: Attaquer le village
   needs:
   - type: wood
     value: 0
@@ -21,7 +21,7 @@ MonoBehaviour:
     value: 0
     isChoosable: 0
   - type: beaver
-    value: 0
+    value: 20
     isChoosable: 1
   - type: sake
     value: 0
@@ -34,11 +34,11 @@ MonoBehaviour:
   - type: beaver
     value: 0
   - type: sake
-    value: 0
+    value: 5
   - type: beaver_dis
     value: 0
   - type: human_dis
-    value: 0
+    value: 10
   fail:
   - type: wood
     value: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   - type: sake
     value: 0
   - type: beaver_dis
-    value: 0
+    value: -10
   - type: human_dis
-    value: 0
-  probability: 0
+    value: 5
+  probability: 0.5

@@ -115,14 +115,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameTextMesh: {fileID: 4091849846202167810}
-  numberTextMesh: {fileID: 0}
-  typeSprite: {fileID: 0}
-  nonChoosableNeed: {fileID: 0}
-  choosableNeed: {fileID: 0}
-  nameChoice: 
-  typeName: 
-  currentNumber: 0
-  numberMax: 0
+  prefabChoosableNeed: {fileID: 1590259697408403096, guid: 147384d88a4464544914dba937743d8b, type: 3}
+  prefabNonChoosableNeed: {fileID: 6091866019351411416, guid: 67d94e0a540d8414e8011cb39078feca, type: 3}
+  needsList: {fileID: 3082360915560700338}
+  max_needs: 
+  actual_needs: 
+  wood_Sprite: {fileID: 21300000, guid: 615b43f628c53174c91ed651a60009e8, type: 3}
+  food_Sprite: {fileID: 21300000, guid: a276eea68bf5f964784efb26b5dcb4fd, type: 3}
+  sake_Sprite: {fileID: 21300000, guid: 391b4a50759df9244b7e14d5c5025c69, type: 3}
+  beaver_Sprite: {fileID: 21300000, guid: a190b060942b7ee4c96bf81483ad52ff, type: 3}
 --- !u!114 &3741936945407662053
 MonoBehaviour:
   m_ObjectHideFlags: 0

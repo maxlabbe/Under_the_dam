@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77a32d154a00a374685b2cb56eddc1c6, type: 3}
-  m_Name: wood
+  m_Name: Champ
   m_EditorClassIdentifier: 
-  title: "For\xEAt"
-  description: "Voulez-vous envoyer des castors r\xE9colter du bois ?"
+  title: Champ
+  description: "Voulez-vous envoyer des castors r\xE9cup\xE9rer de la nourriture
+    ?"
   choices:
-  - {fileID: 11400000, guid: bfea69076fc874740b32637116d9d3ce, type: 2}
-  - {fileID: 11400000, guid: 1e33ed18175569243990e194af584b5f, type: 2}
+  - {fileID: 11400000, guid: ec1e9f3ef8993ee409e3afabee599fb1, type: 2}
+  - {fileID: 11400000, guid: c661ea6da07257047b01533c97f9ab4f, type: 2}
