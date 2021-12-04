@@ -11777,6 +11777,11 @@ MonoBehaviour:
   toggle: {fileID: 5557872678003948462, guid: 987af7090e8e9a34f906a05f0d8dfb43, type: 3}
   choices_list: {fileID: 944175646}
   toggle_list: {fileID: 1297023231}
+  wood: {fileID: 11400000, guid: 88285e102a3a48f4c989fd1afe096d19, type: 2}
+  big_wood: {fileID: 11400000, guid: fb7a6142837c5064a9280f6bd36829c8, type: 2}
+  field: {fileID: 11400000, guid: 37bd7bad19a379d439c8fc2e7cff4c16, type: 2}
+  big_field: {fileID: 11400000, guid: 86a453c240c7ff5499515671546b11fc, type: 2}
+  village: {fileID: 11400000, guid: 25f1282d59a0d3843b971320fb57bb72, type: 2}
 --- !u!114 &2146275196
 MonoBehaviour:
   m_ObjectHideFlags: 0
