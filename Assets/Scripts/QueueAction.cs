@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class QueueAction
@@ -22,12 +23,17 @@ public class QueueAction
             { "beaver_dis", 0 },
             { "human_dis", 0 }
         };
-        
+        List<Action> executedActions = new List<Action>();
         foreach (var action in queue)
         {
             if (!action.doSelf()) continue;
             var  rewardAction = action.finishAction();
             rewards = addRessourceDictionaries(rewards, rewardAction);
+            executedActions.Add(action);
+        }
+
+        foreach (var action in executedActions)
+        {
             removeActionFromQueue(action);
         }
         return rewards;
@@ -35,7 +41,7 @@ public class QueueAction
 
     public Dictionary<string, int> addRessourceDictionaries(Dictionary<string, int> dict, Dictionary<string, int> dictToAdd)
     {
-        var keys = dict.Keys;
+        var keys = new List<string>(dict.Keys.ToList());
         foreach (var k in keys)
         {
             dict[k] += dictToAdd[k];

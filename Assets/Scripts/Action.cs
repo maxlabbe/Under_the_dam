@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -38,6 +39,7 @@ public class Action
         // this.daysToFinish = choiceData.time;
         this.daysToFinish = (choiceData.dayToFinish == 0) ? 3 : choiceData.dayToFinish;
         this.inProg = true;
+        successChance = Mathf.FloorToInt(choiceData.probability*100);
     }
 
     public bool doSelf()
@@ -148,13 +150,13 @@ public class Action
 
     private void UpdateDataByNSake()
     {
-        // // Assuming each unit of sake increases rewards by 10%
-        // //TODO: Params can be moved to a SO
-        // var rewardsKeys = rewards.Keys;
-        // foreach (var k in rewardsKeys)
-        // {
-        //     rewards[k] = Mathf.FloorToInt(rewards[k] * (1 + 0.1f * 1));
-        // }
+        // Assuming each unit of sake increases rewards by 10%
+        //TODO: Params can be moved to a SO
+         var rewardsKeys = new List<string>(rewards.Keys.ToList());
+         foreach (var k in rewardsKeys)
+         {
+             rewards[k] = Mathf.FloorToInt(rewards[k] * (1 + 0.1f * 1));
+         }
     }
 
 
