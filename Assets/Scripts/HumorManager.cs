@@ -1,12 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HumorManager{
-   
+public class HumorManager: MonoBehaviour{
+    public static HumorManager instance { get; private set; }
     private float m_humans_gauge;
     private float m_beavers_gauge;
-    
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public HumorManager()
     {
         m_humans_gauge = 0f;

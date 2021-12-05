@@ -6,17 +6,14 @@ using TMPro;
 
 public class AChoice : MonoBehaviour
 {
-
+    public Choice.results[] successRewards;
+    public Choice.results[] failureRewards;
     public TextMeshProUGUI nameTextMesh;
     public GameObject prefabChoosableNeed;
     public GameObject prefabNonChoosableNeed;
     public GameObject needsList;
     public int[] max_needs;
     public int[] actual_needs;
-    public Sprite wood_Sprite;
-    public Sprite food_Sprite;
-    public Sprite sake_Sprite;
-    public Sprite beaver_Sprite;
     public int nonUsedNeed;
 
     // public GameObject nonChoosableNeed;
@@ -24,6 +21,8 @@ public class AChoice : MonoBehaviour
 
     public void setChoice(Choice choice)
     {
+        successRewards = choice.rewards;
+        failureRewards = choice.fail;
         max_needs = new int[4];
         actual_needs = new int[4];
         GameObject nameGameObject = gameObject.transform.Find("name").gameObject;
@@ -47,23 +46,7 @@ public class AChoice : MonoBehaviour
                     downbutton.onClick.AddListener(delegate { decrement(i2); });
                     upbutton.onClick.AddListener(delegate { increment(i2); });
                     Image typeImage = tmpChoosableNeed.transform.Find("arrowAndType").Find("type_of_ressources").gameObject.GetComponent<Image>();
-                    switch (need.type)
-                    {
-                        case "wood":
-                            typeImage.sprite = wood_Sprite;
-                            break;
-                        case "food":
-                            typeImage.sprite = food_Sprite;
-                            break;
-                        case "sake":
-                            typeImage.sprite = sake_Sprite;
-                            break;
-                        case "beaver":
-                            typeImage.sprite = beaver_Sprite;
-                            break;
-                        default:
-                            break;
-                    }
+                    typeImage.overrideSprite=ResourceIconExtractor.instance.Search(need.type);
                     TextMeshProUGUI number = tmpChoosableNeed.transform.Find("number").gameObject.GetComponent<TextMeshProUGUI>();
                     number.SetText(actual_needs[i].ToString() + " / " + max_needs[i].ToString());
                 }
@@ -72,23 +55,7 @@ public class AChoice : MonoBehaviour
                     GameObject tmpNonChoosableNeed = Instantiate(prefabNonChoosableNeed);
                     tmpNonChoosableNeed.transform.SetParent(needsList.transform);
                     Image typeImage = tmpNonChoosableNeed.transform.Find("arrowAndType").Find("type_of_ressources").gameObject.GetComponent<Image>();
-                    switch (need.type)
-                    {
-                        case "wood":
-                            typeImage.sprite = wood_Sprite;
-                            break;
-                        case "food":
-                            typeImage.sprite = food_Sprite;
-                            break;
-                        case "sake":
-                            typeImage.sprite = sake_Sprite;
-                            break;
-                        case "beaver":
-                            typeImage.sprite = beaver_Sprite;
-                            break;
-                        default:
-                            break;
-                    }
+                    typeImage.overrideSprite=ResourceIconExtractor.instance.Search(need.type);
                     TextMeshProUGUI number = tmpNonChoosableNeed.transform.Find("number").gameObject.GetComponent<TextMeshProUGUI>();
                     number.SetText(actual_needs[i].ToString() + " / " + max_needs[i].ToString());
                 }
