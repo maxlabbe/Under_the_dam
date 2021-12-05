@@ -14,11 +14,18 @@ public class Action
     public int n_beavers;
     private Dictionary<string, int> rewards;
 
-    public Action(int wood, int food, string type)
+    //TODO - Edit: configurable daysToFinish,
+    //TODO - Implement: Rewards when the action fails,
+    //TODO - Implement: determine success/failure when resolving the action,
+    //TODO - Implement: sake amount can affect [reward amount],[time to resolve (?)] etc.
+    //TODO - Implement: number of beaver assigned can affect [success chance], [time to resolve (?)], etc.
+    
+    public Action(int wood, int food, int beaver,string type)
     {
+        
         this.m_wood = wood;
         this.m_food = food;
-        this.n_beavers = 5;
+        this.n_beavers = beaver;
         this.m_type = type;
         this.rewards = new Dictionary<string, int>();
         this.daysToFinish = 3;
@@ -45,7 +52,6 @@ public class Action
 
     public Dictionary<string, int> finishAction()
     {
-        DoAction();
         return this.rewards;
     }
 
@@ -96,6 +102,7 @@ public class Action
 
     public void DoAction()
     {
+        //TODO - REVIEW: Delete this method if it is confirmed Deprecated
         switch (m_type)
         {
             case "village":
