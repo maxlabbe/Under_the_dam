@@ -93,8 +93,8 @@ public class Tile : MonoBehaviour
         if(EventSystem.current.IsPointerOverGameObject()) return;
         this.m_action_choice_maker.SetActive(true);
         this.m_action_choice_maker.transform.Find("actions_status_texts").GetComponent<Choices_Panel>().setAllChoices(m_type);
-        QueueAction queue = this.day_manager.GetComponent<DayManager>().getQueue();
-        Action action = new Action(m_wood, m_food, m_type);
-        queue.addActionToQueue(action);
+        //QueueAction queue = this.day_manager.GetComponent<DayManager>().getQueue();
+        //Action action = new Action(m_wood, m_food, m_type);
+        //queue.addActionToQueue(action);
     }
 }
