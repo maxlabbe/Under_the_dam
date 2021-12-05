@@ -6,65 +6,57 @@ using TMPro;
 
 public class AChoice : MonoBehaviour
 {
-    public Choice.results[] successRewards;
-    public Choice.results[] failureRewards;
+    public Choice choiceData;
     public TextMeshProUGUI nameTextMesh;
     public GameObject prefabChoosableNeed;
     public GameObject prefabNonChoosableNeed;
     public GameObject needsList;
-    public int[] max_needs;
-    public int[] actual_needs;
-    public int nonUsedNeed;
+    public Dictionary<string, int> max_needs;
+    public Dictionary<string, int> actual_needs;
 
     // public GameObject nonChoosableNeed;
     // public GameObject choosableNeed;
 
     public void setChoice(Choice choice)
     {
-        successRewards = choice.rewards;
-        failureRewards = choice.fail;
-        max_needs = new int[4];
-        actual_needs = new int[4];
+        choiceData = choice;
+        max_needs = new Dictionary<string, int>();
+        actual_needs = new Dictionary<string, int>();
         GameObject nameGameObject = gameObject.transform.Find("name").gameObject;
         nameTextMesh = nameGameObject.GetComponent<TextMeshProUGUI>();
         nameTextMesh.SetText(choice.nameChoice);
-        nonUsedNeed = 0;
-        int i = 0;
         foreach (Choice.need need in choice.needs)
         {
-            max_needs[i] = need.value;
-            actual_needs[i] = 0;
-            if (need.value != 0)
+            max_needs.Add(need.type, need.value);
+            actual_needs.Add(need.type, 0);
+            if (need.isChoosable)
             {
-                if (need.isChoosable)
-                {
-                    GameObject tmpChoosableNeed = Instantiate(prefabChoosableNeed);
-                    tmpChoosableNeed.transform.SetParent(needsList.transform);
-                    Button downbutton = tmpChoosableNeed.transform.Find("arrowAndType").Find("down").gameObject.GetComponent<Button>();
-                    Button upbutton = tmpChoosableNeed.transform.Find("arrowAndType").Find("up").gameObject.GetComponent<Button>();
-                    int i2 = i;
-                    downbutton.onClick.AddListener(delegate { decrement(i2); });
-                    upbutton.onClick.AddListener(delegate { increment(i2); });
-                    Image typeImage = tmpChoosableNeed.transform.Find("arrowAndType").Find("type_of_ressources").gameObject.GetComponent<Image>();
-                    typeImage.overrideSprite=ResourceIconExtractor.instance.Search(need.type);
-                    TextMeshProUGUI number = tmpChoosableNeed.transform.Find("number").gameObject.GetComponent<TextMeshProUGUI>();
-                    number.SetText(actual_needs[i].ToString() + " / " + max_needs[i].ToString());
-                }
-                else
-                {
-                    GameObject tmpNonChoosableNeed = Instantiate(prefabNonChoosableNeed);
-                    tmpNonChoosableNeed.transform.SetParent(needsList.transform);
-                    Image typeImage = tmpNonChoosableNeed.transform.Find("arrowAndType").Find("type_of_ressources").gameObject.GetComponent<Image>();
-                    typeImage.overrideSprite=ResourceIconExtractor.instance.Search(need.type);
-                    TextMeshProUGUI number = tmpNonChoosableNeed.transform.Find("number").gameObject.GetComponent<TextMeshProUGUI>();
-                    number.SetText(actual_needs[i].ToString() + " / " + max_needs[i].ToString());
+                GameObject tmpChoosableNeed = Instantiate(prefabChoosableNeed);
+                tmpChoosableNeed.transform.SetParent(needsList.transform);
+                Button downbutton = tmpChoosableNeed.transform.Find("arrowAndType").Find("down").gameObject.GetComponent<Button>();
+                Button upbutton = tmpChoosableNeed.transform.Find("arrowAndType").Find("up").gameObject.GetComponent<Button>();
+                downbutton.onClick.AddListener(delegate { decrement(need.type); });
+                upbutton.onClick.AddListener(delegate { increment(need.type); });
+                Image typeImage = tmpChoosableNeed.transform.Find("arrowAndType").Find("type_of_ressources").gameObject.GetComponent<Image>();
+                typeImage.overrideSprite = ResourceIconExtractor.instance.Search(need.type);
+                TextMeshProUGUI number = tmpChoosableNeed.transform.Find("number").gameObject.GetComponent<TextMeshProUGUI>();
+                number.SetText(actual_needs[need.type].ToString() + " / " + max_needs[need.type].ToString());
+                if(need.value == 0) {
+                    tmpChoosableNeed.SetActive(false);
                 }
             }
             else
             {
-                nonUsedNeed++;
+                GameObject tmpNonChoosableNeed = Instantiate(prefabNonChoosableNeed);
+                tmpNonChoosableNeed.transform.SetParent(needsList.transform);
+                Image typeImage = tmpNonChoosableNeed.transform.Find("arrowAndType").Find("type_of_ressources").gameObject.GetComponent<Image>();
+                typeImage.overrideSprite = ResourceIconExtractor.instance.Search(need.type);
+                TextMeshProUGUI number = tmpNonChoosableNeed.transform.Find("number").gameObject.GetComponent<TextMeshProUGUI>();
+                number.SetText(actual_needs[need.type].ToString() + " / " + max_needs[need.type].ToString());
+                if(need.value == 0) {
+                    tmpNonChoosableNeed.SetActive(false);
+                }
             }
-            i++;
         }
     }
 
@@ -79,15 +71,33 @@ public class AChoice : MonoBehaviour
     {
     }
 
-    public void increment(int i)
+    public void increment(string type)
     {
-        actual_needs[i] = (actual_needs[i] < max_needs[i]) ? actual_needs[i] + 1 : max_needs[i];
-        needsList.transform.GetChild(i - nonUsedNeed).Find("number").gameObject.GetComponent<TextMeshProUGUI>().SetText(actual_needs[i].ToString() + " / " + max_needs[i].ToString());
+        actual_needs[type] = (actual_needs[type] < max_needs[type]) ? actual_needs[type] + 1 : max_needs[type];
+        int i = 0;
+        foreach (var item in actual_needs.Keys)
+        {
+            if (item == type)
+            {
+                break;
+            }
+            i++;
+        }
+        needsList.transform.GetChild(i).Find("number").gameObject.GetComponent<TextMeshProUGUI>().SetText(actual_needs[type].ToString() + " / " + max_needs[type].ToString());
     }
 
-    public void decrement(int i)
+    public void decrement(string type)
     {
-        actual_needs[i] = (actual_needs[i] > 0) ? actual_needs[i] - 1 : 0;
-        needsList.transform.GetChild(i - nonUsedNeed).Find("number").gameObject.GetComponent<TextMeshProUGUI>().SetText(actual_needs[i].ToString() + " / " + max_needs[i].ToString());
+        actual_needs[type] = (actual_needs[type] > 0) ? actual_needs[type] - 1 : 0;
+        int i = 0;
+        foreach (var item in actual_needs.Keys)
+        {
+            if (item == type)
+            {
+                break;
+            }
+            i++;
+        }
+        needsList.transform.GetChild(i).Find("number").gameObject.GetComponent<TextMeshProUGUI>().SetText(actual_needs[type].ToString() + " / " + max_needs[type].ToString());
     }
 }

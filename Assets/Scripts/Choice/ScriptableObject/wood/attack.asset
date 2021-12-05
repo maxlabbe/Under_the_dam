@@ -53,3 +53,5 @@ MonoBehaviour:
   - type: human_dis
     value: 0
   probability: 0.5
+  isAttack: 1
+  dayToFinish: 0

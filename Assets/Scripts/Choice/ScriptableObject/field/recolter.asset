@@ -15,16 +15,16 @@ MonoBehaviour:
   nameChoice: Recolter
   needs:
   - type: wood
-    value: 0
-    isChoosable: 0
+    value: 11
+    isChoosable: 1
   - type: food
     value: 0
-    isChoosable: 0
+    isChoosable: 1
   - type: beaver
-    value: 10
+    value: 33
     isChoosable: 1
   - type: sake
-    value: 5
+    value: 44
     isChoosable: 1
   rewards:
   - type: wood
@@ -53,3 +53,5 @@ MonoBehaviour:
   - type: human_dis
     value: 0
   probability: 0.9
+  isAttack: 0
+  dayToFinish: 0

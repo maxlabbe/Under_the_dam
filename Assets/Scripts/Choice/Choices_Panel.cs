@@ -82,6 +82,11 @@ public class Choices_Panel : MonoBehaviour
     public void accept(){
         Toggle tmp = this.toggle_list.GetFirstActiveToggle();
         int index = tmp.transform.GetSiblingIndex();
+        
+        QueueAction queue = DayManager.instance.getQueue();
+        AChoice resChoice = this.choices_list.transform.GetChild(index).gameObject.GetComponent<AChoice>();
+        Action action = new Action(resChoice.choiceData, resChoice.actual_needs);
+        queue.addActionToQueue(action);
         Debug.Log(this.choices_list.transform.GetChild(index).gameObject.GetComponent<AChoice>().nameTextMesh.text);
     }
 }

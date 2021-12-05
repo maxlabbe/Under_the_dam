@@ -24,7 +24,7 @@ MonoBehaviour:
     value: 10
     isChoosable: 1
   - type: sake
-    value: 0
+    value: 5
     isChoosable: 1
   rewards:
   - type: wood
@@ -53,3 +53,5 @@ MonoBehaviour:
   - type: human_dis
     value: -5
   probability: 0.3
+  isAttack: 1
+  dayToFinish: 0

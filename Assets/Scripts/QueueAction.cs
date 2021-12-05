@@ -15,12 +15,12 @@ public class QueueAction
     {
         var rewards = new Dictionary<string, int>
         {
-            { "Wood", 0 },
-            { "Food", 0 },
-            { "Beaver", 0 },
-            { "Sake", 0 },
-            { "Beaver_dis", 0 },
-            { "Human_dis", 0 }
+            { "wood", 0 },
+            { "food", 0 },
+            { "beaver", 0 },
+            { "sake", 0 },
+            { "beaver_dis", 0 },
+            { "human_dis", 0 }
         };
         
         foreach (var action in queue)

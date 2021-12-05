@@ -15,7 +15,7 @@ MonoBehaviour:
   nameChoice: Voler
   needs:
   - type: wood
-    value: 0
+    value: 10
     isChoosable: 0
   - type: food
     value: 0
@@ -53,3 +53,5 @@ MonoBehaviour:
   - type: human_dis
     value: 0
   probability: 0.5
+  isAttack: 0
+  dayToFinish: 0

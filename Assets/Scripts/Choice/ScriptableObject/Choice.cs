@@ -26,4 +26,6 @@ public class Choice : ScriptableObject
     public results[] rewards;
     public results[] fail;
     public float probability;
+    public bool isAttack;
+    public int dayToFinish;
 }

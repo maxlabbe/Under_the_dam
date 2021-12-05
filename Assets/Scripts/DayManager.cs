@@ -5,6 +5,7 @@ using TMPro;
 
 public class DayManager : MonoBehaviour
 {
+    public static DayManager instance{get; private set;}
     private QueueAction queue;
     public int nDays;
     public TextMeshProUGUI daysCount;
@@ -23,6 +24,9 @@ public class DayManager : MonoBehaviour
 
     public MiniActionManager miniActionManager;
 
+    private void Awake(){
+        instance = this;
+    }
     
     // Start is called before the first frame update
     void Start()
@@ -42,17 +46,17 @@ public class DayManager : MonoBehaviour
         
         this.daysCount.SetText("Days : {0}", this.nDays);
         this.actionsRewards.SetText("Récompenses de la journée : \nBois : +{0}\nNourriture : +{1}\nSaké : +{2}",
-            rewardsFromTheDay["Wood"], 
-            rewardsFromTheDay["Food"], 
-            rewardsFromTheDay["Sake"]);
-        this.humorManager.AddBeaversTaunt(rewardsFromTheDay["Beaver_dis"]);
-        this.humorManager.AddHumansTaunt(rewardsFromTheDay["Human_dis"]);
+            rewardsFromTheDay["wood"], 
+            rewardsFromTheDay["food"], 
+            rewardsFromTheDay["sake"]);
+        this.humorManager.AddBeaversTaunt(rewardsFromTheDay["beaver_dis"]);
+        this.humorManager.AddHumansTaunt(rewardsFromTheDay["human_dis"]);
         this.m_beaverGauge.SetValue(humorManager.GetBeaversTauntValue());
         this.m_humanGauge.SetValue(humorManager.GetHumansTauntValue());
 
-        this.ressources_manager.AddFood(rewardsFromTheDay["Food"]);
-        this.ressources_manager.AddWood(rewardsFromTheDay["Wood"]);
-        this.ressources_manager.AddSake(rewardsFromTheDay["Sake"]);
+        this.ressources_manager.AddFood(rewardsFromTheDay["food"]);
+        this.ressources_manager.AddWood(rewardsFromTheDay["wood"]);
+        this.ressources_manager.AddSake(rewardsFromTheDay["sake"]);
 
         this.miniActionManager.UpdateMinis(queue.getQueueList());
         if (humorManager.GetBeaversTauntValue() >= 100f)
