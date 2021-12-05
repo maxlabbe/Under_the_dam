@@ -17,6 +17,7 @@ public class AChoice : MonoBehaviour
     public Sprite food_Sprite;
     public Sprite sake_Sprite;
     public Sprite beaver_Sprite;
+    public int nonUsedNeed;
 
     // public GameObject nonChoosableNeed;
     // public GameObject choosableNeed;
@@ -28,6 +29,7 @@ public class AChoice : MonoBehaviour
         GameObject nameGameObject = gameObject.transform.Find("name").gameObject;
         nameTextMesh = nameGameObject.GetComponent<TextMeshProUGUI>();
         nameTextMesh.SetText(choice.nameChoice);
+        nonUsedNeed = 0;
         int i = 0;
         foreach (Choice.need need in choice.needs)
         {
@@ -39,6 +41,11 @@ public class AChoice : MonoBehaviour
                 {
                     GameObject tmpChoosableNeed = Instantiate(prefabChoosableNeed);
                     tmpChoosableNeed.transform.SetParent(needsList.transform);
+                    Button downbutton = tmpChoosableNeed.transform.Find("arrowAndType").Find("down").gameObject.GetComponent<Button>();
+                    Button upbutton = tmpChoosableNeed.transform.Find("arrowAndType").Find("up").gameObject.GetComponent<Button>();
+                    int i2 = i;
+                    downbutton.onClick.AddListener(delegate { decrement(i2); });
+                    upbutton.onClick.AddListener(delegate { increment(i2); });
                     Image typeImage = tmpChoosableNeed.transform.Find("arrowAndType").Find("type_of_ressources").gameObject.GetComponent<Image>();
                     switch (need.type)
                     {
@@ -86,6 +93,10 @@ public class AChoice : MonoBehaviour
                     number.SetText(actual_needs[i].ToString() + " / " + max_needs[i].ToString());
                 }
             }
+            else
+            {
+                nonUsedNeed++;
+            }
             i++;
         }
     }
@@ -99,25 +110,17 @@ public class AChoice : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // nameTextMesh.SetText(nameChoice);
-        // switch (typeName)
-        // {
-        //     case "Beaver":
-        //         typeSprite.GetComponent<Image>().color = Color.blue;
-        //         break;
-        //     default:
-        //         break;
-        // }
-        // numberTextMesh.SetText(currentNumber.ToString() + " / " + numberMax.ToString());
     }
 
-    public void increment()
+    public void increment(int i)
     {
-        // currentNumber = (currentNumber < numberMax) ? currentNumber + 1 : numberMax;
+        actual_needs[i] = (actual_needs[i] < max_needs[i]) ? actual_needs[i] + 1 : max_needs[i];
+        needsList.transform.GetChild(i - nonUsedNeed).Find("number").gameObject.GetComponent<TextMeshProUGUI>().SetText(actual_needs[i].ToString() + " / " + max_needs[i].ToString());
     }
 
-    public void decrement()
+    public void decrement(int i)
     {
-        // currentNumber = (currentNumber > 0) ? currentNumber - 1 : 0;
+        actual_needs[i] = (actual_needs[i] > 0) ? actual_needs[i] - 1 : 0;
+        needsList.transform.GetChild(i - nonUsedNeed).Find("number").gameObject.GetComponent<TextMeshProUGUI>().SetText(actual_needs[i].ToString() + " / " + max_needs[i].ToString());
     }
 }

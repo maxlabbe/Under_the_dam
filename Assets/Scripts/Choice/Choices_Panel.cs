@@ -37,7 +37,7 @@ public class Choices_Panel : MonoBehaviour
             GameObject.Destroy(child.gameObject);
             GameObject.Destroy(child);
         }
-        ChoicesPanelInfos tmp = new ChoicesPanelInfos();
+        ChoicesPanelInfos tmp = ScriptableObject.CreateInstance<ChoicesPanelInfos>();
         switch (type)
         {
             case "wood":
@@ -64,6 +64,7 @@ public class Choices_Panel : MonoBehaviour
         foreach (Choice choice in tmp.choices)
         {
             GameObject tmpToogle = Instantiate(toggle);
+            tmpToogle.GetComponent<Toggle>().group = this.toggle_list;
             tmpToogle.transform.SetParent(toggle_list.transform);
             GameObject tmpChoice = Instantiate(prefab);
             tmpChoice.transform.SetParent(choices_list.transform);
@@ -76,5 +77,11 @@ public class Choices_Panel : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void accept(){
+        Toggle tmp = this.toggle_list.GetFirstActiveToggle();
+        int index = tmp.transform.GetSiblingIndex();
+        Debug.Log(this.choices_list.transform.GetChild(index).gameObject.GetComponent<AChoice>().nameTextMesh.text);
     }
 }
