@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Tile : MonoBehaviour
 {
+    public bool acceptAction = true;
     protected string m_type;
     protected int m_wood;
     protected int m_food;
@@ -90,11 +92,25 @@ public class Tile : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if(EventSystem.current.IsPointerOverGameObject()) return;
+        if(EventSystem.current.IsPointerOverGameObject()||!acceptAction) return;
+        
         this.m_action_choice_maker.SetActive(true);
         this.m_action_choice_maker.transform.Find("actions_status_texts").GetComponent<Choices_Panel>().setAllChoices(m_type);
+        TileSpamController.instance.tmpReference = this;
         // QueueAction queue = this.day_manager.GetComponent<DayManager>().getQueue();
         // Action action = new Action(m_wood, m_food, m_type);
         // queue.addActionToQueue(action);
+    }
+
+    public void UpdateColorBalance()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().color=acceptAction?Color.white:Color.red;
+    }
+
+    private void OnEnable()
+    {
+        if (!TurnStartFlag.instance.flag) return;
+        acceptAction = true;
+        UpdateColorBalance();
     }
 }

@@ -601,6 +601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 135379848}
   - component: {fileID: 135379849}
+  - component: {fileID: 135379850}
   m_Layer: 0
   m_Name: MapManager
   m_TagString: Untagged
@@ -649,6 +650,19 @@ MonoBehaviour:
   m_tileDownRightRiver: {fileID: 6984911699101465050, guid: 5581e4d94da5bfc49978c46e129582fa, type: 3}
   m_tileField: {fileID: 3029412367848519274, guid: 9eb860c84e5a49f488a048cf2dee24ac, type: 3}
   m_tileWood: {fileID: 6353099525650345557, guid: 206565851e6f3d14d9c422e4705a7cd9, type: 3}
+--- !u!114 &135379850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135379847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd324293a9560a4a95ccdbe708fc998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tmpReference: {fileID: 34525263}
 --- !u!1 &162488598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,6 +1637,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 135379850}
+        m_TargetAssemblyTypeName: TileSpamController, Assembly-CSharp
+        m_MethodName: DisableActionAccept
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3746,6 +3772,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1395341666}
+        m_TargetAssemblyTypeName: TurnStartFlag, Assembly-CSharp
+        m_MethodName: SetFlag
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!222 &848382280
 CanvasRenderer:
@@ -6377,6 +6415,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1395341666}
+        m_TargetAssemblyTypeName: TurnStartFlag, Assembly-CSharp
+        m_MethodName: SetFlag
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1384476569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6426,6 +6476,7 @@ GameObject:
   - component: {fileID: 1395341663}
   - component: {fileID: 1395341665}
   - component: {fileID: 1395341664}
+  - component: {fileID: 1395341666}
   m_Layer: 5
   m_Name: end_day_button
   m_TagString: Untagged
@@ -6491,6 +6542,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395341662}
   m_CullTransparentMesh: 1
+--- !u!114 &1395341666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395341662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0a0924708c8a644eb3bf688826f13ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flag: 1
 --- !u!1 &1418376236
 GameObject:
   m_ObjectHideFlags: 0

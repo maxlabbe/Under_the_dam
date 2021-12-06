@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62201cfa91945384aa73dbc2ffcb063b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  acceptAction: 1
   m_sprite: {fileID: -2899042930356684694, guid: 8e2b7bb6ef767264397fbdb3b89788d1, type: 3}
   m_highlight: {fileID: 3310617140178221799}
   m_action_choice_maker: {fileID: 0}
