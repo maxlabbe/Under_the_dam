@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7032433079839400830, guid: bc7785912a110fd44ab4e9dc75c08eed, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7304896754446901704, guid: bc7785912a110fd44ab4e9dc75c08eed, type: 3}
       propertyPath: day_manager
@@ -3859,7 +3859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &860510591
 RectTransform:
   m_ObjectHideFlags: 0

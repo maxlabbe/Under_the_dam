@@ -48,9 +48,9 @@ public class BeaverManager : MonoBehaviour
     {
         for(int i = 0; i < numberOfBeavers; i++)
         {
-            m_freeBeavers[i].doSomething();
-            m_workingBeavers.Add(m_freeBeavers[i]);
-            m_freeBeavers.Remove(m_freeBeavers[i]);
+            m_freeBeavers[0].doSomething();
+            m_workingBeavers.Add(m_freeBeavers[0]);
+            m_freeBeavers.Remove(m_freeBeavers[0]);
         }
     }
 
@@ -58,9 +58,9 @@ public class BeaverManager : MonoBehaviour
     {
         for (int i = 0; i < numberOfBeavers; i++)
         {
-            m_workingBeavers[i].isResting();
-            m_freeBeavers.Add(m_workingBeavers[i]);
-            m_workingBeavers.Remove(m_workingBeavers[i]);
+            m_workingBeavers[0].isResting();
+            m_freeBeavers.Add(m_workingBeavers[0]);
+            m_workingBeavers.Remove(m_workingBeavers[0]);
         }
     }
 

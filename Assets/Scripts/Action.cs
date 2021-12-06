@@ -29,6 +29,11 @@ public class Action
         rewards = new Dictionary<string, int>();
         failureRewards = new Dictionary<string, int>();
         this.used_ressources = used_ressources;
+        
+        RessourcesManager.instance.UseFood(used_ressources["food"]);
+        RessourcesManager.instance.UseWood(used_ressources["wood"]);
+        RessourcesManager.instance.UseSake(used_ressources["sake"]);
+        RessourcesManager.instance.m_toothForce.goToWork(used_ressources["beaver"]);
 
         foreach (Choice.results res in choiceData.rewards)
         {
@@ -39,8 +44,10 @@ public class Action
             failureRewards.Add(fai.type, fai.value);
         }
         // this.daysToFinish = choiceData.time;
-        m_timeToDo = (choiceData.dayToFinish == 0) ? 3 : choiceData.dayToFinish;
+        choice.dayToFinish = (daysToFinish == 0) ? 3 : choice.dayToFinish;
+        m_timeToDo = choice.dayToFinish - used_ressources["beaver"]/choice.dayToFinish + 1;
         this.daysToFinish = m_timeToDo;
+        this.rewards["beaver_dis"] *= daysToFinish ;
         this.inProg = true;
         successChance = Mathf.FloorToInt(choiceData.probability*100);
     }
@@ -58,7 +65,8 @@ public class Action
     public Dictionary<string, int> finishAction()
     {
         // determine if action fails
-        UpdateDataByNSake();
+        // UpdateDataByNSake();
+        RessourcesManager.instance.m_toothForce.comeFromWork(used_ressources["beaver"]);
         if (Random.Range(0, 101) > successChance) // 1d100 > successChance ?
         {
             return this.failureRewards;
@@ -158,7 +166,7 @@ public class Action
          var rewardsKeys = new List<string>(rewards.Keys.ToList());
          foreach (var k in rewardsKeys)
          {
-             rewards[k] = Mathf.FloorToInt(rewards[k] * (1 + 0.1f * used_ressources["sake"]));
+            //  rewards[k] = Mathf.FloorToInt(rewards[k] * (1 + 0.1f * used_ressources["sake"]));
          }
     }
 

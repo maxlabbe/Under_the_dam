@@ -92,7 +92,7 @@ public class Tile : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if(EventSystem.current.IsPointerOverGameObject()||!acceptAction) return;
+        if(EventSystem.current.IsPointerOverGameObject()||!acceptAction || this.m_type == null || this.m_type == "water" || this.m_type == "beaver camp") return;
         
         this.m_action_choice_maker.SetActive(true);
         this.m_action_choice_maker.transform.Find("actions_status_texts").GetComponent<Choices_Panel>().setAllChoices(m_type);
@@ -109,7 +109,7 @@ public class Tile : MonoBehaviour
 
     private void OnEnable()
     {
-        if (!TurnStartFlag.instance.flag) return;
+        // if (!TurnStartFlag.instance.flag) return;
         acceptAction = true;
         UpdateColorBalance();
     }

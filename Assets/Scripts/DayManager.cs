@@ -51,17 +51,29 @@ public class DayManager : MonoBehaviour
             rewardsFromTheDay["sake"]);
         this.humorManager.AddBeaversTaunt(rewardsFromTheDay["beaver_dis"]);
         this.humorManager.AddHumansTaunt(rewardsFromTheDay["human_dis"]);
-        this.m_beaverGauge.SetValue(humorManager.GetBeaversTauntValue());
-        this.m_humanGauge.SetValue(humorManager.GetHumansTauntValue());
 
         this.ressources_manager.AddFood(rewardsFromTheDay["food"]);
         this.ressources_manager.AddWood(rewardsFromTheDay["wood"]);
         this.ressources_manager.AddSake(rewardsFromTheDay["sake"]);
 
         this.miniActionManager.UpdateMinis(queue.getQueueList());
+
+        this.ressources_manager.UseFood(ressources_manager.GetToothForce());
+        this.ressources_manager.UseWood(ressources_manager.GetToothForce()/10);
+        if(ressources_manager.GetFood() < 0) {
+            humorManager.AddBeaversTaunt((Mathf.Abs(ressources_manager.GetFood())/ressources_manager.GetToothForce())*15);
+            ressources_manager.SetFood(0);
+        }
+        if (ressources_manager.GetWood() < 0) {
+            humorManager.AddBeaversTaunt((Mathf.Abs(ressources_manager.GetWood()*10)/ressources_manager.GetToothForce())*15);
+            ressources_manager.SetWood(0);
+        }
+
+        this.m_beaverGauge.SetValue(humorManager.GetBeaversTauntValue());
+        this.m_humanGauge.SetValue(humorManager.GetHumansTauntValue());
+
         if (humorManager.GetBeaversTauntValue() >= 100f)
         {
-            Debug.Log("ici");
             this.panelLost.SetActive(true);
         }
         else if (humorManager.GetHumansTauntValue() >= 100f)

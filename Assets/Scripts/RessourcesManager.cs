@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class RessourcesManager : MonoBehaviour
 {
-    private int m_wood;
-    private int m_food;
-    [SerializeField] private BeaverManager m_toothForce;
+    public static RessourcesManager instance{get; private set;}
+    private int m_wood = 2;
+    private int m_food = 10;
+    [SerializeField] public BeaverManager m_toothForce;
     private int m_sake;
+    void Awake(){ instance =this;}
     
     public int GetWood()
     {
@@ -24,6 +26,10 @@ public class RessourcesManager : MonoBehaviour
         this.m_wood -= wood;
     }
 
+    public void SetWood(int wood) {
+        this.m_wood = wood;
+    }
+
     public int GetFood()
     {
         return this.m_food;
@@ -37,6 +43,10 @@ public class RessourcesManager : MonoBehaviour
     public void UseFood(int food)
     {
         this.m_food -= food;
+    }
+
+    public void SetFood(int food) {
+        this.m_food = food;
     }
 
     public int GetToothForce()

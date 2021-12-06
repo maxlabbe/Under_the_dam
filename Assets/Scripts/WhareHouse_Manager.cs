@@ -13,7 +13,7 @@ public class WhareHouse_Manager : MonoBehaviour
     {
         ressources_status[0].SetText(ressources_manager.GetWood().ToString());
         ressources_status[1].SetText(ressources_manager.GetFood().ToString());
-        ressources_status[2].SetText(ressources_manager.GetToothForce().ToString());
+        ressources_status[2].SetText(ressources_manager.m_toothForce.getFreeBeaversNumber() + " / " + ressources_manager.GetToothForce().ToString());
         ressources_status[3].SetText(ressources_manager.GetSake().ToString());
     }
 }

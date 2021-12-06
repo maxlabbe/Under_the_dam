@@ -59,6 +59,7 @@ public class TileMap : MonoBehaviour
         }
         m_tiles = tiles;
         InitializeMap();
+        parent.SetActive(false);
     }
 
     // Update is called once per frame

@@ -41,7 +41,8 @@ public class AChoice : MonoBehaviour
                 typeImage.overrideSprite = ResourceIconExtractor.instance.Search(need.type);
                 TextMeshProUGUI number = tmpChoosableNeed.transform.Find("number").gameObject.GetComponent<TextMeshProUGUI>();
                 number.SetText(actual_needs[need.type].ToString() + " / " + max_needs[need.type].ToString());
-                if(need.value == 0) {
+                if (need.value == 0)
+                {
                     tmpChoosableNeed.SetActive(false);
                 }
             }
@@ -52,8 +53,26 @@ public class AChoice : MonoBehaviour
                 Image typeImage = tmpNonChoosableNeed.transform.Find("arrowAndType").Find("type_of_ressources").gameObject.GetComponent<Image>();
                 typeImage.overrideSprite = ResourceIconExtractor.instance.Search(need.type);
                 TextMeshProUGUI number = tmpNonChoosableNeed.transform.Find("number").gameObject.GetComponent<TextMeshProUGUI>();
+                switch (need.type)
+                {
+                    case "wood":
+                        actual_needs[need.type] = Mathf.Min(RessourcesManager.instance.GetWood(), max_needs[need.type]);
+                        break;
+                    case "food":
+                        actual_needs[need.type] = Mathf.Min(RessourcesManager.instance.GetFood(), max_needs[need.type]);
+                        break;
+                    case "beaver":
+                        actual_needs[need.type] = Mathf.Min(RessourcesManager.instance.m_toothForce.getFreeBeaversNumber(), max_needs[need.type]);
+                        break;
+                    case "sake":
+                        actual_needs[need.type] = Mathf.Min(RessourcesManager.instance.GetSake(), max_needs[need.type]);
+                        break;
+                    default:
+                        break;
+                }
                 number.SetText(actual_needs[need.type].ToString() + " / " + max_needs[need.type].ToString());
-                if(need.value == 0) {
+                if (need.value == 0)
+                {
                     tmpNonChoosableNeed.SetActive(false);
                 }
             }
@@ -73,7 +92,30 @@ public class AChoice : MonoBehaviour
 
     public void increment(string type)
     {
-        actual_needs[type] = (actual_needs[type] < max_needs[type]) ? actual_needs[type] + 1 : max_needs[type];
+        int minimumNeed;
+        switch (type)
+        {
+            case "wood":
+                minimumNeed = Mathf.Min(max_needs[type], RessourcesManager.instance.GetWood());
+                actual_needs[type] = (actual_needs[type] < minimumNeed) ? actual_needs[type] + 1 : minimumNeed;
+                break;
+            case "food":
+                minimumNeed = Mathf.Min(max_needs[type], RessourcesManager.instance.GetFood());
+                actual_needs[type] = (actual_needs[type] < minimumNeed) ? actual_needs[type] + 1 : minimumNeed;
+                break;
+            case "beaver":
+                minimumNeed = Mathf.Min(max_needs[type], RessourcesManager.instance.m_toothForce.getFreeBeaversNumber());
+                actual_needs[type] = (actual_needs[type] < minimumNeed) ? actual_needs[type] + 1 : minimumNeed;
+                break;
+            case "sake":
+                minimumNeed = Mathf.Min(max_needs[type], RessourcesManager.instance.GetSake());
+                actual_needs[type] = (actual_needs[type] < minimumNeed) ? actual_needs[type] + 1 : minimumNeed;
+                break;
+            default:
+                break;
+        }
+
+
         int i = 0;
         foreach (var item in actual_needs.Keys)
         {
