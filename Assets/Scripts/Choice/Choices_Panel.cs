@@ -87,6 +87,8 @@ public class Choices_Panel : MonoBehaviour
         AChoice resChoice = this.choices_list.transform.GetChild(index).gameObject.GetComponent<AChoice>();
         Action action = new Action(resChoice.choiceData, resChoice.actual_needs);
         queue.addActionToQueue(action);
+        DayManager.instance.miniActionManager.UpdateMinis(queue.getQueueList());
+        DayManager.instance.miniActionManager.Show();
         Debug.Log(this.choices_list.transform.GetChild(index).gameObject.GetComponent<AChoice>().nameTextMesh.text);
     }
 }

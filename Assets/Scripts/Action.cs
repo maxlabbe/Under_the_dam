@@ -15,6 +15,7 @@ public class Action
     private string m_type;
     private Dictionary<string, int> rewards; //
     private Dictionary<string, int> failureRewards; //
+    private Dictionary<string, int> used_ressources; //
 
     //TODO - Edit: configurable daysToFinish,     (=>OK)
     //TODO - Implement: Rewards when the action fails,       (=>OK)
@@ -27,6 +28,7 @@ public class Action
         choiceData = choice;
         rewards = new Dictionary<string, int>();
         failureRewards = new Dictionary<string, int>();
+        this.used_ressources = used_ressources;
 
         foreach (Choice.results res in choiceData.rewards)
         {
@@ -37,7 +39,8 @@ public class Action
             failureRewards.Add(fai.type, fai.value);
         }
         // this.daysToFinish = choiceData.time;
-        this.daysToFinish = (choiceData.dayToFinish == 0) ? 3 : choiceData.dayToFinish;
+        m_timeToDo = (choiceData.dayToFinish == 0) ? 3 : choiceData.dayToFinish;
+        this.daysToFinish = m_timeToDo;
         this.inProg = true;
         successChance = Mathf.FloorToInt(choiceData.probability*100);
     }
@@ -155,7 +158,7 @@ public class Action
          var rewardsKeys = new List<string>(rewards.Keys.ToList());
          foreach (var k in rewardsKeys)
          {
-             rewards[k] = Mathf.FloorToInt(rewards[k] * (1 + 0.1f * 1));
+             rewards[k] = Mathf.FloorToInt(rewards[k] * (1 + 0.1f * used_ressources["sake"]));
          }
     }
 

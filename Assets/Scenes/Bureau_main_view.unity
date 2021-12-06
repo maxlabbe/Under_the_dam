@@ -509,6 +509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mask: {fileID: 2022450948}
+  humor: {fileID: 0}
 --- !u!114 &121584977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1618,6 +1619,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1659865120}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &311086136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2475,7 +2488,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 621418060}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1659865120}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &621418060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8516,6 +8541,7 @@ MonoBehaviour:
   nDays: 0
   daysCount: {fileID: 1786096429}
   actionsRewards: {fileID: 966356952}
+  humorManager: {fileID: 0}
   ressources_manager: {fileID: 1241576810}
   m_beaverGauge: {fileID: 121584976}
   m_humanGauge: {fileID: 2108964392}
@@ -11641,6 +11667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mask: {fileID: 2122283820}
+  humor: {fileID: 0}
 --- !u!114 &2108964393
 MonoBehaviour:
   m_ObjectHideFlags: 0
