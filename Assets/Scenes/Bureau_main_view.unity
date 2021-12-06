@@ -2189,6 +2189,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &559353196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 559353197}
+  - component: {fileID: 559353198}
+  m_Layer: 0
+  m_Name: EndDayAnimation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &559353197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559353196}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1215613956}
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &559353198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559353196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b723b462c4b89f443b37a5a6d1356be9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_table: {fileID: 1314860725}
+  m_office: {fileID: 1380859986}
+  m_dream: {fileID: 1215613954}
+  endDayReport: {fileID: 1941535177}
 --- !u!1 &572788485
 GameObject:
   m_ObjectHideFlags: 0
@@ -3713,18 +3761,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1941535177}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1897799790}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -3777,6 +3813,10 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: TurnStartFlag, Assembly-CSharp
         m_MethodName: SetFlag
         m_Mode: 6
+      - m_Target: {fileID: 559353198}
+        m_TargetAssemblyTypeName: EndDayAnimation, Assembly-CSharp
+        m_MethodName: endDayAnimation
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5985,6 +6025,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1314860727}
   - component: {fileID: 1314860726}
+  - component: {fileID: 1314860728}
   m_Layer: 6
   m_Name: Table
   m_TagString: Untagged
@@ -6057,6 +6098,22 @@ Transform:
   m_Father: {fileID: 1562567318}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &1314860728
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314860725}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 90da644cdcd5f1746818ed79a32da338, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 90da644cdcd5f1746818ed79a32da338, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1345487325
 GameObject:
   m_ObjectHideFlags: 0
@@ -6213,6 +6270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1380859988}
   - component: {fileID: 1380859987}
+  - component: {fileID: 1380859989}
   m_Layer: 6
   m_Name: office_main_view
   m_TagString: Untagged
@@ -6285,6 +6343,22 @@ Transform:
   m_Father: {fileID: 1562567318}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &1380859989
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380859986}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 90da644cdcd5f1746818ed79a32da338, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 90da644cdcd5f1746818ed79a32da338, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1384476566
 GameObject:
   m_ObjectHideFlags: 0
