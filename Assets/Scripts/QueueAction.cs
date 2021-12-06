@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class QueueAction
@@ -13,35 +14,38 @@ public class QueueAction
 
     public Dictionary<string,int> doAllActions()
     {
-        Dictionary<string, int> rewards = new Dictionary<string, int>();
-        rewards.Add("Wood",   0);
-        rewards.Add("Food",   0);
-        rewards.Add("Beaver", 0);
-        rewards.Add("Sake",   0);
-        rewards.Add("Beaver_dis", 0);
-        rewards.Add("Human_dis", 0);
-
-
-        foreach (Action action in this.queue.ToArray())
+        var rewards = new Dictionary<string, int>
         {
-            if (action.doSelf())
-            {
-                Dictionary<string, int>  rewardAction = action.finishAction();
-                rewards = addRessourceDictionaries(rewards, rewardAction);
-                removeActionFromQueue(action);
-            }
+            { "wood", 0 },
+            { "food", 0 },
+            { "beaver", 0 },
+            { "sake", 0 },
+            { "beaver_dis", 0 },
+            { "human_dis", 0 }
+        };
+        List<Action> executedActions = new List<Action>();
+        foreach (var action in queue)
+        {
+            if (!action.doSelf()) continue;
+            var  rewardAction = action.finishAction();
+            rewards = addRessourceDictionaries(rewards, rewardAction);
+            executedActions.Add(action);
+        }
+
+        foreach (var action in executedActions)
+        {
+            removeActionFromQueue(action);
         }
         return rewards;
     }
 
     public Dictionary<string, int> addRessourceDictionaries(Dictionary<string, int> dict, Dictionary<string, int> dictToAdd)
     {
-        dict["Wood"] = dict["Wood"] + dictToAdd["Wood"];
-        dict["Food"] = dict["Food"] + dictToAdd["Food"];
-        dict["Beaver"] = dict["Beaver"] + dictToAdd["Beaver"];
-        dict["Sake"] = dict["Sake"] + dictToAdd["Sake"];
-        dict["Beaver_dis"] = dict["Beaver_dis"] + dictToAdd["Beaver_dis"];
-        dict["Human_dis"] = dict["Human_dis"] + dictToAdd["Human_dis"];
+        var keys = new List<string>(dict.Keys.ToList());
+        foreach (var k in keys)
+        {
+            dict[k] += dictToAdd[k];
+        }
 
         return dict;
     }

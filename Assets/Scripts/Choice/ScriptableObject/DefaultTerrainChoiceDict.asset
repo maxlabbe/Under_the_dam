@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a945c3b774cafa24b920de1335ba5221, type: 3}
+  m_Name: DefaultTerrainChoiceDict
+  m_EditorClassIdentifier: 
+  dict:
+  - terrainType: wood
+    choices: {fileID: 11400000, guid: 88285e102a3a48f4c989fd1afe096d19, type: 2}
+  - terrainType: big_wood
+    choices: {fileID: 11400000, guid: 88285e102a3a48f4c989fd1afe096d19, type: 2}
+  - terrainType: big_field
+    choices: {fileID: 11400000, guid: 88285e102a3a48f4c989fd1afe096d19, type: 2}
+  - terrainType: river
+    choices: {fileID: 11400000, guid: 88285e102a3a48f4c989fd1afe096d19, type: 2}
+  - terrainType: field
+    choices: {fileID: 11400000, guid: 88285e102a3a48f4c989fd1afe096d19, type: 2}
+  - terrainType: village
+    choices: {fileID: 11400000, guid: 88285e102a3a48f4c989fd1afe096d19, type: 2}
