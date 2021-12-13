@@ -5,11 +5,12 @@ using TMPro;
 
 public class DayManager : MonoBehaviour
 {
-    public static DayManager instance{get; private set;}
+    public static DayManager instance { get; private set; }
     private QueueAction queue;
     public int nDays;
     public TextMeshProUGUI daysCount;
     public TextMeshProUGUI actionsRewards;
+    public Canvas finishedActions;
 
     public HumorManager humorManager;
     public RessourcesManager ressources_manager;
@@ -18,16 +19,19 @@ public class DayManager : MonoBehaviour
     public BeaverGauge m_beaverGauge;
     public HumanGauge m_humanGauge;
 
-    public GameObject panelWin;
+    public GameObject attackSprite;
+    public GameObject produceSprite;
 
+    public GameObject panelWin;
     public GameObject panelLost;
 
     public MiniActionManager miniActionManager;
 
-    private void Awake(){
+    private void Awake()
+    {
         instance = this;
     }
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,18 +41,21 @@ public class DayManager : MonoBehaviour
     }
 
     void Update()
-    {}
+    { }
 
     public void passDay()
     {
         this.nDays++;
         Dictionary<string, int> rewardsFromTheDay = this.queue.doAllActions();
-        
+
         this.daysCount.SetText("Days : {0}", this.nDays);
-        this.actionsRewards.SetText("Récompenses de la journée : \nBois : +{0}\nNourriture : +{1}\nSaké : +{2}",
-            rewardsFromTheDay["wood"], 
-            rewardsFromTheDay["food"], 
-            rewardsFromTheDay["sake"]);
+
+        string text = "Récompenses de la journée : \nBois : +" + rewardsFromTheDay["wood"] + "\nNourriture : +" + rewardsFromTheDay["food"] + "\nSaké : +" + rewardsFromTheDay["sake"];
+
+        if (rewardsFromTheDay["human_dis"] > 0)
+            text = text + "\nVos actions ont eu des conséquence sur le bonheur des humains !";
+
+        this.actionsRewards.SetText(text);
         this.humorManager.AddBeaversTaunt(rewardsFromTheDay["beaver_dis"]);
         this.humorManager.AddHumansTaunt(rewardsFromTheDay["human_dis"]);
 
@@ -59,13 +66,15 @@ public class DayManager : MonoBehaviour
         this.miniActionManager.UpdateMinis(queue.getQueueList());
 
         this.ressources_manager.UseFood(ressources_manager.GetToothForce());
-        this.ressources_manager.UseWood(ressources_manager.GetToothForce()/10);
-        if(ressources_manager.GetFood() < 0) {
-            humorManager.AddBeaversTaunt((Mathf.Abs(ressources_manager.GetFood())/ressources_manager.GetToothForce())*15);
+        this.ressources_manager.UseWood(ressources_manager.GetToothForce() / 10);
+        if (ressources_manager.GetFood() < 0)
+        {
+            humorManager.AddBeaversTaunt((Mathf.Abs(ressources_manager.GetFood()) / ressources_manager.GetToothForce()) * 15);
             ressources_manager.SetFood(0);
         }
-        if (ressources_manager.GetWood() < 0) {
-            humorManager.AddBeaversTaunt((Mathf.Abs(ressources_manager.GetWood()*10)/ressources_manager.GetToothForce())*15);
+        if (ressources_manager.GetWood() < 0)
+        {
+            humorManager.AddBeaversTaunt((Mathf.Abs(ressources_manager.GetWood() * 10) / ressources_manager.GetToothForce()) * 15);
             ressources_manager.SetWood(0);
         }
 
@@ -90,6 +99,31 @@ public class DayManager : MonoBehaviour
     public HumorManager getHumorManager()
     {
         return humorManager;
+    }
+
+    public void addFinishedAction(bool isAttack)
+    {
+        if (this.finishedActions.transform.childCount < 7)
+        {
+            if (isAttack)
+            {
+                GameObject tmp = Instantiate(attackSprite);
+                tmp.transform.SetParent(finishedActions.transform);
+            }
+            else
+            {
+                GameObject tmp = Instantiate(produceSprite);
+                tmp.transform.SetParent(finishedActions.transform);
+            }
+        }
+    }
+
+    public void destroyFinishedActions()
+    {
+        foreach (Transform child in this.finishedActions.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
     }
 
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class QueueAction
 {
     private List<Action> queue;
+    [SerializeField] private Sprite m_attackSprite, m_ressourcesSprite;
 
     public QueueAction()
     {
@@ -34,6 +35,7 @@ public class QueueAction
 
         foreach (var action in executedActions)
         {
+            DayManager.instance.addFinishedAction(action.getType());
             removeActionFromQueue(action);
         }
         return rewards;
