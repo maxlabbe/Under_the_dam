@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BeaverManager : MonoBehaviour
 {
-    private const int START_BEAVERS_NUMBER = 5;
+    private const int START_BEAVERS_NUMBER = 30;
     [SerializeField] private List<Beaver> m_freeBeavers;
     [SerializeField] private List<Beaver> m_workingBeavers;
     [SerializeField] DayManager m_dayManager;

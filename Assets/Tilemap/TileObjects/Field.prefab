@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceptAction: 1
-  m_sprite: {fileID: -2899042930356684694, guid: 8e2b7bb6ef767264397fbdb3b89788d1, type: 3}
+  m_sprite: {fileID: -7900334729539125998, guid: 8e2b7bb6ef767264397fbdb3b89788d1, type: 3}
   m_highlight: {fileID: 3310617140178221799}
   m_action_choice_maker: {fileID: 0}
   day_manager: {fileID: 0}
@@ -93,7 +93,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2899042930356684694, guid: 8e2b7bb6ef767264397fbdb3b89788d1, type: 3}
+  m_Sprite: {fileID: -7900334729539125998, guid: 8e2b7bb6ef767264397fbdb3b89788d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

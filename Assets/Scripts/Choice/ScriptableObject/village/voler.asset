@@ -38,7 +38,7 @@ MonoBehaviour:
   - type: beaver_dis
     value: 0
   - type: human_dis
-    value: 5
+    value: 10
   fail:
   - type: wood
     value: 0

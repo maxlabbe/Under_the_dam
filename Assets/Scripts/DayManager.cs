@@ -69,12 +69,12 @@ public class DayManager : MonoBehaviour
         this.ressources_manager.UseWood(ressources_manager.GetToothForce() / 10);
         if (ressources_manager.GetFood() < 0)
         {
-            humorManager.AddBeaversTaunt((Mathf.Abs(ressources_manager.GetFood()) / ressources_manager.GetToothForce()) * 15);
+            humorManager.AddBeaversTaunt((Mathf.Abs(ressources_manager.GetFood()) / ressources_manager.GetToothForce()) * 3);
             ressources_manager.SetFood(0);
         }
         if (ressources_manager.GetWood() < 0)
         {
-            humorManager.AddBeaversTaunt((Mathf.Abs(ressources_manager.GetWood() * 10) / ressources_manager.GetToothForce()) * 15);
+            humorManager.AddBeaversTaunt((Mathf.Abs(ressources_manager.GetWood() * 10) / ressources_manager.GetToothForce()) * 4 );
             ressources_manager.SetWood(0);
         }
 

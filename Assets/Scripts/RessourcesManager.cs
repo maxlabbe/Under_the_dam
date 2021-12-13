@@ -5,8 +5,8 @@ using UnityEngine;
 public class RessourcesManager : MonoBehaviour
 {
     public static RessourcesManager instance{get; private set;}
-    private int m_wood = 2;
-    private int m_food = 10;
+    private int m_wood = 10;
+    private int m_food = 30;
     [SerializeField] public BeaverManager m_toothForce;
     private int m_sake;
     void Awake(){ instance =this;}
