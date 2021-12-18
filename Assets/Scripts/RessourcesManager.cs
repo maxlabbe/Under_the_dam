@@ -79,5 +79,20 @@ public class RessourcesManager : MonoBehaviour
         this.m_sake -= sake;
     }
 
+    public int getRessource(string type) {
+        switch (type)
+        {
+            case "wood":
+                return GetWood();
+            case "food":
+                return GetFood();
+            case "sake":
+                return GetSake();
+            case "beaver":
+                return m_toothForce.getFreeBeaversNumber();
+            default:
+                return -1;
+        }
+    }
 
 }

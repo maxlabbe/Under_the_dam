@@ -18,5 +18,11 @@ public class TileSpamController : MonoBehaviour
         tmpReference.acceptAction = false;
         tmpReference.UpdateColorBalance();
     }
+
+    public void EnableActionAccept()
+    {
+        tmpReference.acceptAction = true;
+        tmpReference.UpdateColorBalance();
+    }
     
 }

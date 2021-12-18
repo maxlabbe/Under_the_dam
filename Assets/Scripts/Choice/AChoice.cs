@@ -125,6 +125,7 @@ public class AChoice : MonoBehaviour
             }
             i++;
         }
+        needsList.transform.GetChild(i).Find("number").gameObject.GetComponent<TextMeshProUGUI>().color = new Color(0,0,0,255);
         needsList.transform.GetChild(i).Find("number").gameObject.GetComponent<TextMeshProUGUI>().SetText(actual_needs[type].ToString() + " / " + max_needs[type].ToString());
     }
 
@@ -140,6 +141,7 @@ public class AChoice : MonoBehaviour
             }
             i++;
         }
+        needsList.transform.GetChild(i).Find("number").gameObject.GetComponent<TextMeshProUGUI>().color = new Color(0,0,0,255);
         needsList.transform.GetChild(i).Find("number").gameObject.GetComponent<TextMeshProUGUI>().SetText(actual_needs[type].ToString() + " / " + max_needs[type].ToString());
     }
 }

@@ -79,6 +79,36 @@ public class Choices_Panel : MonoBehaviour
 
     }
 
+    public void isAcceptable() {
+        Toggle tmp = this.toggle_list.GetFirstActiveToggle();
+        int index = tmp.transform.GetSiblingIndex();
+        bool willAccept = true;
+        AChoice resChoice = this.choices_list.transform.GetChild(index).gameObject.GetComponent<AChoice>();
+        foreach (var need in resChoice.choiceData.needs)
+        {
+            if ((!need.isChoosable && resChoice.actual_needs[need.type] != resChoice.max_needs[need.type])
+            || (need.type == "beaver" && resChoice.actual_needs[need.type] == 0))
+            {
+                willAccept = false;
+                int i = 0;
+                foreach (var item in resChoice.actual_needs.Keys)
+                {
+                    if (item == need.type)
+                    {
+                        break;
+                    }
+                    i++;
+                }
+                resChoice.needsList.transform.GetChild(i).Find("number").gameObject.GetComponent<TextMeshProUGUI>().color = new Color(255, 0, 0, 255);
+            }
+
+        }
+        if(willAccept){
+            this.accept();
+            gameObject.transform.parent.gameObject.SetActive(false);
+        }
+    }
+
     public void accept(){
         Toggle tmp = this.toggle_list.GetFirstActiveToggle();
         int index = tmp.transform.GetSiblingIndex();
@@ -89,6 +119,5 @@ public class Choices_Panel : MonoBehaviour
         queue.addActionToQueue(action);
         DayManager.instance.miniActionManager.UpdateMinis(queue.getQueueList());
         DayManager.instance.miniActionManager.Show();
-        Debug.Log(this.choices_list.transform.GetChild(index).gameObject.GetComponent<AChoice>().nameTextMesh.text);
     }
 }
