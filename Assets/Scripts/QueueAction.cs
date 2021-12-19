@@ -35,7 +35,7 @@ public class QueueAction
 
         foreach (var action in executedActions)
         {
-            DayManager.instance.addFinishedAction(action.getType());
+            DayManager.instance.addFinishedAction(action.getType(), action.isFailed);
             removeActionFromQueue(action);
         }
         return rewards;

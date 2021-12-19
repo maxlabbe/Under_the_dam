@@ -101,7 +101,7 @@ public class DayManager : MonoBehaviour
         return humorManager;
     }
 
-    public void addFinishedAction(bool isAttack)
+    public void addFinishedAction(bool isAttack, bool isFailed)
     {
         if (this.finishedActions.transform.childCount < 7)
         {
@@ -109,11 +109,17 @@ public class DayManager : MonoBehaviour
             {
                 GameObject tmp = Instantiate(attackSprite);
                 tmp.transform.SetParent(finishedActions.transform);
+                if(isFailed){
+                    tmp.GetComponent<SpriteRenderer>().color = Color.red;
+                }
             }
             else
             {
                 GameObject tmp = Instantiate(produceSprite);
                 tmp.transform.SetParent(finishedActions.transform);
+                if(isFailed){
+                    tmp.GetComponent<SpriteRenderer>().color = Color.red;
+                }
             }
         }
     }

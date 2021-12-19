@@ -13,6 +13,7 @@ public class Action
     private bool inProg; //L'action est en cours ou non
     private int successChance; //Est déterminé à partir de Choice.probability
     private string m_type;
+    public bool isFailed = false;
     private Dictionary<string, int> rewards; //
     private Dictionary<string, int> failureRewards; //
     private Dictionary<string, int> used_ressources; //
@@ -69,6 +70,7 @@ public class Action
         RessourcesManager.instance.m_toothForce.comeFromWork(used_ressources["beaver"]);
         if (Random.Range(0, 101) > successChance) // 1d100 > successChance ?
         {
+            isFailed = true;
             return this.failureRewards;
         }
         return this.rewards;

@@ -18,7 +18,7 @@ MonoBehaviour:
     value: 0
     isChoosable: 0
   - type: food
-    value: 0
+    value: 1
     isChoosable: 0
   - type: beaver
     value: 10
