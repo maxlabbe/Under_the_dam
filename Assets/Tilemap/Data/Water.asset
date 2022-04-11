@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc6c15f9377c0549a58f274bdb311b3, type: 3}
+  m_Name: Water
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: cca1f9f112b0b154ea1fe25775d11b96, type: 2}
+  - {fileID: 11400000, guid: 0f2ef33d2f5c4324a846be153b631360, type: 2}
+  - {fileID: 11400000, guid: 8e69f23dcdb727649893884cfcb389cf, type: 2}
+  - {fileID: 11400000, guid: 607bd509cf276cd47a5a51dda6743e22, type: 2}
+  - {fileID: 11400000, guid: f9effda8dc161a540b8c366410adc78f, type: 2}
+  - {fileID: 11400000, guid: 5bcb66b04085edb42b52d460bbf8afda, type: 2}
+  - {fileID: 11400000, guid: 2c5a652e2cc4a284a86951319746f7e4, type: 2}
+  - {fileID: 11400000, guid: eb0bf1458244da346bcd0903401e5167, type: 2}
+  - {fileID: 11400000, guid: 6a90d2e29e4729c48bf9b6212d0b3989, type: 2}
+  terrainType: Water

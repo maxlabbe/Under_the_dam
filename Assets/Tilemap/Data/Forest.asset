@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc6c15f9377c0549a58f274bdb311b3, type: 3}
+  m_Name: Forest
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: 5c145ae4e7017e1469800063645776ef, type: 2}
+  - {fileID: 11400000, guid: dda1c3d4b60c5ed4493bdcc0bd7358e2, type: 2}
+  - {fileID: 11400000, guid: 035605cf30fb6d84d8245d519980b06f, type: 2}
+  - {fileID: 11400000, guid: 6877600af6072e242ba40798fbf62065, type: 2}
+  - {fileID: 11400000, guid: 1095a8b7f995fe941bd28082d0b87f41, type: 2}
+  - {fileID: 11400000, guid: 42cb3c5b5ecfeed44910b7bbc39b1198, type: 2}
+  - {fileID: 11400000, guid: 87e3ce06f660bb044af45cbd06558897, type: 2}
+  - {fileID: 11400000, guid: 81ae88422f4245745a550a965abf58b5, type: 2}
+  - {fileID: 11400000, guid: 6667b64338efa7a458fb57d5b70cbd72, type: 2}
+  terrainType: Forest

@@ -1,0 +1,242 @@
+{
+    "wood": {
+        "title": "Forêt",
+        "description": "Voulez vous envoyer des castors récupérer du bois dans la forêt ?",
+        "choices": [
+            {
+                "name": "Chercher du bois",
+                "needs": "beaver:10",
+                "rewards": {
+                    "wood": 5,
+                    "food": 0,
+                    "Beaver": 0,
+                    "Sake": 0,
+                    "Beaver_dis": 2,
+                    "Human_dis": 0
+                },
+                "fail":{
+                    "wood": 1,
+                    "food": 0,
+                    "Beaver": -1,
+                    "Sake": 0,
+                    "Beaver_dis": 4,
+                    "Human_dis": 0
+                },
+                "probability": 0.3
+            },
+            {
+                "name": "Voler du bois",
+                "needs": "beaver:20",
+                "rewards": {
+                    "wood": 3,
+                    "food": 0,
+                    "Beaver": 0,
+                    "Sake": 1,
+                    "Beaver_dis": 0,
+                    "Human_dis": 2
+                },
+                "fail":{
+                    "wood": 0,
+                    "food": 0,
+                    "Beaver": -2,
+                    "Sake": 0,
+                    "Beaver_dis": 4,
+                    "Human_dis": -2
+                },
+                "probability": 0.1
+            }
+        ]
+    },
+    "big_wood": {
+        "title": "Forêt",
+        "description": "Voulez vous envoyer des castors récupérer du bois dans la forêt ?",
+        "choices": [
+            {
+                "name": "Chercher du bois",
+                "needs": "beaver:10",
+                "rewards": {
+                    "wood": 5,
+                    "food": 0,
+                    "Beaver": 0,
+                    "Sake": 0,
+                    "Beaver_dis": 2,
+                    "Human_dis": 0
+                },
+                "fail":{
+                    "wood": 1,
+                    "food": 0,
+                    "Beaver": -1,
+                    "Sake": 0,
+                    "Beaver_dis": 4,
+                    "Human_dis": 0
+                },
+                "probability": 0.3
+            },
+            {
+                "name": "Voler du bois",
+                "needs": "beaver:20",
+                "rewards": {
+                    "wood": 3,
+                    "food": 0,
+                    "Beaver": 0,
+                    "Sake": 1,
+                    "Beaver_dis": 0,
+                    "Human_dis": 2
+                },
+                "fail":{
+                    "wood": 0,
+                    "food": 0,
+                    "Beaver": -2,
+                    "Sake": 0,
+                    "Beaver_dis": 4,
+                    "Human_dis": -2
+                },
+                "probability": 0.1
+            }
+        ]
+    },
+    "field": {
+        "title": "Champs",
+        "description": "Voulez vous envoyer des castors récupérer de la nourriture dans le champs ?",
+        "choices": [
+            {
+                "name": "Chercher de la nourriture",
+                "needs": "beaver:10",
+                "rewards": {
+                    "wood": 0,
+                    "food": 2,
+                    "Beaver": 0,
+                    "Sake": 0,
+                    "Beaver_dis": 2,
+                    "Human_dis": 0
+                },
+                "fail":{
+                    "wood": 1,
+                    "food": 0,
+                    "Beaver": -1,
+                    "Sake": 0,
+                    "Beaver_dis": 4,
+                    "Human_dis": 0
+                },
+                "probability": 0.3
+            },
+            {
+                "name": "Voler de la nourriture",
+                "needs": "beaver:20",
+                "rewards": {
+                    "wood": 0,
+                    "food": 3,
+                    "Beaver": 0,
+                    "Sake": 1,
+                    "Beaver_dis": 0,
+                    "Human_dis": 2
+                },
+                "fail":{
+                    "wood": 0,
+                    "food": 0,
+                    "Beaver": -2,
+                    "Sake": 0,
+                    "Beaver_dis": 4,
+                    "Human_dis": -2
+                },
+                "probability": 0.1
+            }
+        ]
+    },
+    "big_field": {
+        "title": "Champs",
+        "description": "Voulez vous envoyer des castors récupérer de la nourriture dans le champs ?",
+        "choices": [
+            {
+                "name": "Chercher de la nourriture",
+                "needs": "beaver:10",
+                "rewards": {
+                    "wood": 0,
+                    "food": 2,
+                    "Beaver": 0,
+                    "Sake": 0,
+                    "Beaver_dis": 2,
+                    "Human_dis": 0
+                },
+                "fail":{
+                    "wood": 1,
+                    "food": 0,
+                    "Beaver": -1,
+                    "Sake": 0,
+                    "Beaver_dis": 4,
+                    "Human_dis": 0
+                },
+                "probability": 0.3
+            },
+            {
+                "name": "Voler de la nourriture",
+                "needs": "beaver:20",
+                "rewards": {
+                    "wood": 0,
+                    "food": 3,
+                    "Beaver": 0,
+                    "Sake": 1,
+                    "Beaver_dis": 0,
+                    "Human_dis": 2
+                },
+                "fail":{
+                    "wood": 0,
+                    "food": 0,
+                    "Beaver": -2,
+                    "Sake": 0,
+                    "Beaver_dis": 4,
+                    "Human_dis": -2
+                },
+                "probability": 0.1
+            }
+        ]
+    },
+    "village": {
+        "title": "Village d'humain",
+        "description": "Voilà le village des nécréants qui souillent notre forêt !",
+        "choices": [
+            {
+                "name": "Bouter les humains !",
+                "needs": "beaver:50",
+                "rewards": {
+                    "wood": 0,
+                    "food": 0,
+                    "Beaver": 0,
+                    "Sake": 5,
+                    "Beaver_dis": -4,
+                    "Human_dis": 4
+                },
+                "fail":{
+                    "wood": 0,
+                    "food": 0,
+                    "Beaver": -1,
+                    "Sake": 0,
+                    "Beaver_dis": 8,
+                    "Human_dis": -4
+                },
+                "probability": 0.1
+            },
+            {
+                "name": "Renverser les poubelles",
+                "needs": "beaver:20",
+                "rewards": {
+                    "wood": 0,
+                    "food": 3,
+                    "Beaver": 0,
+                    "Sake": 1,
+                    "Beaver_dis": 0,
+                    "Human_dis": 2
+                },
+                "fail":{
+                    "wood": 0,
+                    "food": 0,
+                    "Beaver": -2,
+                    "Sake": 0,
+                    "Beaver_dis": 4,
+                    "Human_dis": -2
+                },
+                "probability": 0.1
+            }
+        ]
+    }
+}
